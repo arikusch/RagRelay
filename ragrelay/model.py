@@ -16,3 +16,8 @@ from typing import List
 class Worker:
     """A retrieval endpoint profile."""
 
+    id: str
+    region: str
+    topics: List[str] = field(default_factory=list)
+    weight: float = 1.0
+    base_latency_ms: float = 50.0
