@@ -21,3 +21,8 @@ class Worker:
     topics: List[str] = field(default_factory=list)
     weight: float = 1.0
     base_latency_ms: float = 50.0
+    capacity: int = 8
+    vector: List[float] = field(default_factory=list)
+
+    @classmethod
+    def from_dict(cls, d: dict) -> "Worker":
