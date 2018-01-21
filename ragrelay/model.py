@@ -26,3 +26,8 @@ class Worker:
 
     @classmethod
     def from_dict(cls, d: dict) -> "Worker":
+        return cls(
+            id=str(d["id"]),
+            region=str(d.get("region", "unknown")),
+            topics=[str(t) for t in d.get("topics", [])],
+            weight=float(d.get("weight", 1.0)),
