@@ -31,3 +31,8 @@ class Worker:
             region=str(d.get("region", "unknown")),
             topics=[str(t) for t in d.get("topics", [])],
             weight=float(d.get("weight", 1.0)),
+            base_latency_ms=float(d.get("base_latency_ms", 50.0)),
+            capacity=int(d.get("capacity", 8)),
+            vector=[float(x) for x in d.get("vector", [])],
+        )
+
