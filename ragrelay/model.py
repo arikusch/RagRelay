@@ -36,3 +36,7 @@ class Worker:
             vector=[float(x) for x in d.get("vector", [])],
         )
 
+
+@dataclass(frozen=True)
+class Query:
+    """An incoming retrieval request."""
