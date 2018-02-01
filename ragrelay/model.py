@@ -40,3 +40,8 @@ class Worker:
 @dataclass(frozen=True)
 class Query:
     """An incoming retrieval request."""
+
+    id: str
+    topics: List[str] = field(default_factory=list)
+    vector: List[float] = field(default_factory=list)
+    urgency: float = 0.0
