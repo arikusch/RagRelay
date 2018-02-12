@@ -45,3 +45,8 @@ class Query:
     topics: List[str] = field(default_factory=list)
     vector: List[float] = field(default_factory=list)
     urgency: float = 0.0
+    attempts: int = 3
+
+    @classmethod
+    def from_dict(cls, d: dict) -> "Query":
+        return cls(
