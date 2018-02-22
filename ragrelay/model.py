@@ -50,3 +50,8 @@ class Query:
     @classmethod
     def from_dict(cls, d: dict) -> "Query":
         return cls(
+            id=str(d["id"]),
+            topics=[str(t) for t in d.get("topics", [])],
+            vector=[float(x) for x in d.get("vector", [])],
+            urgency=float(d.get("urgency", 0.0)),
+            attempts=int(d.get("attempts", 3)),
