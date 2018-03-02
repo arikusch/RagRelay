@@ -55,3 +55,8 @@ class Query:
             vector=[float(x) for x in d.get("vector", [])],
             urgency=float(d.get("urgency", 0.0)),
             attempts=int(d.get("attempts", 3)),
+        )
+
+
+@dataclass(frozen=True)
+class Profiles:
