@@ -65,3 +65,8 @@ class Profiles:
     workers: List[Worker]
     queries: List[Query]
 
+    @classmethod
+    def from_dict(cls, d: dict) -> "Profiles":
+        workers = [Worker.from_dict(w) for w in d.get("workers", [])]
+        queries = [Query.from_dict(q) for q in d.get("queries", [])]
+        if not workers:
