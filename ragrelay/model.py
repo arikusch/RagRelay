@@ -70,3 +70,8 @@ class Profiles:
         workers = [Worker.from_dict(w) for w in d.get("workers", [])]
         queries = [Query.from_dict(q) for q in d.get("queries", [])]
         if not workers:
+            raise ValueError("profiles must contain at least one worker")
+        if not queries:
+            raise ValueError("profiles must contain at least one query")
+        return cls(workers=workers, queries=queries)
+
