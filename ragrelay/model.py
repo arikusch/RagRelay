@@ -60,3 +60,8 @@ class Query:
 
 @dataclass(frozen=True)
 class Profiles:
+    """A parsed fixture: the set of workers and queries."""
+
+    workers: List[Worker]
+    queries: List[Query]
+
