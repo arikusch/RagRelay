@@ -24,3 +24,10 @@ def cosine(a: List[float], b: List[float]) -> float:
     for i in range(n):
         dot += a[i] * b[i]
         na += a[i] * a[i]
+        nb += b[i] * b[i]
+    if na == 0 or nb == 0:
+        return 0.0
+    return dot / (math.sqrt(na) * math.sqrt(nb))
+
+
+def topic_overlap(query_topics: List[str], worker_topics: List[str]) -> float:
