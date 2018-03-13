@@ -17,3 +17,10 @@ from typing import List, Tuple
 
 from .model import Profiles, Query, Worker
 
+
+def cosine(a: List[float], b: List[float]) -> float:
+    n = min(len(a), len(b))
+    dot = na = nb = 0.0
+    for i in range(n):
+        dot += a[i] * b[i]
+        na += a[i] * a[i]
