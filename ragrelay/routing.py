@@ -38,3 +38,10 @@ def topic_overlap(query_topics: List[str], worker_topics: List[str]) -> float:
     return hit / len(query_topics)
 
 
+def latency_score(base_latency_ms: float, urgency: float) -> float:
+    """Map base latency to a 0..1 preference (lower latency scores higher)."""
+
+    if base_latency_ms <= 0:
+        return 1.0
+    k = 40.0 * (1.0 + urgency)
+    return k / (k + base_latency_ms)
