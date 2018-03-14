@@ -31,3 +31,10 @@ def cosine(a: List[float], b: List[float]) -> float:
 
 
 def topic_overlap(query_topics: List[str], worker_topics: List[str]) -> float:
+    if not query_topics:
+        return 0.0
+    wset = {t.lower() for t in worker_topics}
+    hit = sum(1 for t in query_topics if t.lower() in wset)
+    return hit / len(query_topics)
+
+
