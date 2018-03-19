@@ -45,3 +45,9 @@ def latency_score(base_latency_ms: float, urgency: float) -> float:
         return 1.0
     k = 40.0 * (1.0 + urgency)
     return k / (k + base_latency_ms)
+
+
+def score_query(query: Query, worker: Worker) -> float:
+    """Compute the deterministic affinity score for a query/worker pair."""
+
+    cos = cosine(query.vector, worker.vector)
