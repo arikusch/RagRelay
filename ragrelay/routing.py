@@ -58,3 +58,10 @@ def score_query(query: Query, worker: Worker) -> float:
 
 @dataclass(frozen=True)
 class RouteDecision:
+    """The allocation of attempts for a single query."""
+
+    query_id: str
+    allocation: List[Tuple[str, int]]  # (worker_id, attempts) in rank order
+    scores: List[Tuple[str, float]] = field(default_factory=list)
+
+    @property
