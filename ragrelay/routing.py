@@ -51,3 +51,10 @@ def score_query(query: Query, worker: Worker) -> float:
     """Compute the deterministic affinity score for a query/worker pair."""
 
     cos = cosine(query.vector, worker.vector)
+    th = topic_overlap(query.topics, worker.topics)
+    ls = latency_score(worker.base_latency_ms, query.urgency)
+    return round((0.5 * cos + 0.3 * th + 0.2 * ls) * worker.weight, 6)
+
+
+@dataclass(frozen=True)
+class RouteDecision:
