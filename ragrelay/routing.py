@@ -78,3 +78,10 @@ def _largest_remainder(weights: List[float], total: int, caps: List[int]) -> Lis
     if n == 0 or total <= 0:
         return [0] * n
     wsum = sum(weights)
+    if wsum <= 0:
+        # even split
+        base = total // n
+        alloc = [min(base, caps[i]) for i in range(n)]
+    else:
+        exact = [total * w / wsum for w in weights]
+        alloc = [min(int(math.floor(e)), caps[i]) for i, e in enumerate(exact)]
