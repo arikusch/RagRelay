@@ -85,3 +85,10 @@ def _largest_remainder(weights: List[float], total: int, caps: List[int]) -> Lis
     else:
         exact = [total * w / wsum for w in weights]
         alloc = [min(int(math.floor(e)), caps[i]) for i, e in enumerate(exact)]
+        assigned = sum(alloc)
+        remainder = total - assigned
+        # rank slots by fractional part desc, then index asc for stability
+        order = sorted(
+            range(n),
+            key=lambda i: (-(exact[i] - math.floor(exact[i])), i),
+        )
