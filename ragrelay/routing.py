@@ -72,3 +72,9 @@ class RouteDecision:
 def _largest_remainder(weights: List[float], total: int, caps: List[int]) -> List[int]:
     """Distribute ``total`` integer units across slots proportional to weights,
     honoring per-slot caps, using the largest-remainder method for determinism.
+    """
+
+    n = len(weights)
+    if n == 0 or total <= 0:
+        return [0] * n
+    wsum = sum(weights)
