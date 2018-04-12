@@ -105,3 +105,10 @@ def _largest_remainder(weights: List[float], total: int, caps: List[int]) -> Lis
 
 
 def route(profiles: Profiles, query: Query, fanout: int = 3) -> RouteDecision:
+    """Allocate a query's attempts across the top ``fanout`` workers.
+
+    Workers are ranked by affinity (desc) then id (asc) for tie stability.
+    Attempts are the query's ``attempts`` count, split proportional to score.
+    """
+
+    scored = [
