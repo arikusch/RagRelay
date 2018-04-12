@@ -92,3 +92,10 @@ def _largest_remainder(weights: List[float], total: int, caps: List[int]) -> Lis
             range(n),
             key=lambda i: (-(exact[i] - math.floor(exact[i])), i),
         )
+        idx = 0
+        guard = 0
+        while remainder > 0 and guard < 10_000:
+            i = order[idx % n]
+            if alloc[i] < caps[i]:
+                alloc[i] += 1
+                remainder -= 1
