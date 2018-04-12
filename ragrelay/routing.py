@@ -99,3 +99,9 @@ def _largest_remainder(weights: List[float], total: int, caps: List[int]) -> Lis
             if alloc[i] < caps[i]:
                 alloc[i] += 1
                 remainder -= 1
+            idx += 1
+            guard += 1
+    return alloc
+
+
+def route(profiles: Profiles, query: Query, fanout: int = 3) -> RouteDecision:
