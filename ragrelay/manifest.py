@@ -8,3 +8,11 @@ canonical inputs so identical runs produce identical run IDs.
 
 from __future__ import annotations
 
+import hashlib
+import json
+from dataclasses import dataclass, field
+from typing import Any, Dict, List
+
+from .model import Profiles
+from .simulate import SimulationResult
+
