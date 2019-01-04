@@ -16,3 +16,11 @@ from typing import Any, Dict, List
 from .model import Profiles
 from .simulate import SimulationResult
 
+
+@dataclass
+class RunManifest:
+    """Serializable record of one simulation run."""
+
+    run_id: str
+    fanout: int
+    worker_count: int
