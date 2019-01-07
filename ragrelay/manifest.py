@@ -24,3 +24,11 @@ class RunManifest:
     run_id: str
     fanout: int
     worker_count: int
+    query_count: int
+    total_attempts: int
+    route_distribution: Dict[str, float]
+    attempts_by_region: Dict[str, int]
+    mean_latency_ms: float
+    p95_latency_ms: float
+    allocations: List[Dict[str, Any]] = field(default_factory=list)
+
