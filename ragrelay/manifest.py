@@ -40,3 +40,11 @@ class RunManifest:
             "query_count": self.query_count,
             "total_attempts": self.total_attempts,
             "route_distribution": self.route_distribution,
+            "attempts_by_region": self.attempts_by_region,
+            "mean_latency_ms": self.mean_latency_ms,
+            "p95_latency_ms": self.p95_latency_ms,
+            "allocations": self.allocations,
+        }
+
+    def to_json(self, indent: int = 2) -> str:
+        return json.dumps(self.to_dict(), indent=indent, sort_keys=True)
