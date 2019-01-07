@@ -32,3 +32,11 @@ class RunManifest:
     p95_latency_ms: float
     allocations: List[Dict[str, Any]] = field(default_factory=list)
 
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "run_id": self.run_id,
+            "fanout": self.fanout,
+            "worker_count": self.worker_count,
+            "query_count": self.query_count,
+            "total_attempts": self.total_attempts,
+            "route_distribution": self.route_distribution,
