@@ -64,3 +64,11 @@ def _digest(profiles: Profiles, fanout: int) -> str:
                 "vector": w.vector,
             }
             for w in profiles.workers
+        ],
+        "queries": [
+            {
+                "id": q.id,
+                "topics": q.topics,
+                "vector": q.vector,
+                "urgency": q.urgency,
+                "attempts": q.attempts,
