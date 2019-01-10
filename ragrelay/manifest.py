@@ -72,3 +72,11 @@ def _digest(profiles: Profiles, fanout: int) -> str:
                 "vector": q.vector,
                 "urgency": q.urgency,
                 "attempts": q.attempts,
+            }
+            for q in profiles.queries
+        ],
+    }
+    canonical = json.dumps(payload, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()[:16]
+
+
