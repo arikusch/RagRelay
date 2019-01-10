@@ -80,3 +80,11 @@ def _digest(profiles: Profiles, fanout: int) -> str:
     return hashlib.sha256(canonical.encode("utf-8")).hexdigest()[:16]
 
 
+def build_manifest(
+    profiles: Profiles, result: SimulationResult, fanout: int
+) -> RunManifest:
+    """Assemble a run manifest from a simulation result."""
+
+    allocations = [
+        {
+            "query_id": d.query_id,
