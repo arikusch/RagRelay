@@ -56,3 +56,11 @@ def _digest(profiles: Profiles, fanout: int) -> str:
         "workers": [
             {
                 "id": w.id,
+                "region": w.region,
+                "topics": w.topics,
+                "weight": w.weight,
+                "base_latency_ms": w.base_latency_ms,
+                "capacity": w.capacity,
+                "vector": w.vector,
+            }
+            for w in profiles.workers
