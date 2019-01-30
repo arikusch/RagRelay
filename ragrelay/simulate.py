@@ -15,3 +15,10 @@ from .model import Profiles
 from .routing import RouteDecision, route
 
 
+@dataclass
+class SimulationResult:
+    """Aggregated output of a routing simulation."""
+
+    decisions: List[RouteDecision]
+    attempts_by_worker: Dict[str, int]
+    attempts_by_region: Dict[str, int]
