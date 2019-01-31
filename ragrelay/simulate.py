@@ -22,3 +22,10 @@ class SimulationResult:
     decisions: List[RouteDecision]
     attempts_by_worker: Dict[str, int]
     attempts_by_region: Dict[str, int]
+    total_attempts: int
+    expected_latency_ms: Dict[str, float]  # per worker
+    mean_latency_ms: float
+    p95_latency_ms: float
+
+    def route_distribution(self) -> Dict[str, float]:
+        """Fraction of total attempts landing on each worker."""
