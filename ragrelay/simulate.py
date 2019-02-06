@@ -29,3 +29,11 @@ class SimulationResult:
 
     def route_distribution(self) -> Dict[str, float]:
         """Fraction of total attempts landing on each worker."""
+
+        if self.total_attempts == 0:
+            return {}
+        return {
+            wid: round(n / self.total_attempts, 4)
+            for wid, n in sorted(self.attempts_by_worker.items())
+        }
+
