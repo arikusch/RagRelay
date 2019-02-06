@@ -44,3 +44,10 @@ def _percentile(values: List[float], pct: float) -> float:
     ordered = sorted(values)
     if len(ordered) == 1:
         return ordered[0]
+    rank = pct / 100.0 * (len(ordered) - 1)
+    lo = int(rank)
+    hi = min(lo + 1, len(ordered) - 1)
+    frac = rank - lo
+    return ordered[lo] + (ordered[hi] - ordered[lo]) * frac
+
+
