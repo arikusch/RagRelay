@@ -58,3 +58,11 @@ def simulate(profiles: Profiles, fanout: int = 3) -> SimulationResult:
     decisions: List[RouteDecision] = []
     attempts_by_worker: Dict[str, int] = {w.id: 0 for w in profiles.workers}
     attempts_by_region: Dict[str, int] = {}
+
+    for q in profiles.queries:
+        decision = route(profiles, q, fanout=fanout)
+        decisions.append(decision)
+        for wid, n in decision.allocation:
+            attempts_by_worker[wid] = attempts_by_worker.get(wid, 0) + n
+            region = worker_by_id[wid].region
+            attempts_by_region[region] = attempts_by_region.get(region, 0) + n
