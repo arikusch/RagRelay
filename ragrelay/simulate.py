@@ -51,3 +51,10 @@ def _percentile(values: List[float], pct: float) -> float:
     return ordered[lo] + (ordered[hi] - ordered[lo]) * frac
 
 
+def simulate(profiles: Profiles, fanout: int = 3) -> SimulationResult:
+    """Run routing for every query and aggregate the results."""
+
+    worker_by_id = {w.id: w for w in profiles.workers}
+    decisions: List[RouteDecision] = []
+    attempts_by_worker: Dict[str, int] = {w.id: 0 for w in profiles.workers}
+    attempts_by_region: Dict[str, int] = {}
