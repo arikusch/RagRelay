@@ -66,3 +66,10 @@ def simulate(profiles: Profiles, fanout: int = 3) -> SimulationResult:
             attempts_by_worker[wid] = attempts_by_worker.get(wid, 0) + n
             region = worker_by_id[wid].region
             attempts_by_region[region] = attempts_by_region.get(region, 0) + n
+
+    total = sum(attempts_by_worker.values())
+
+    # Deterministic latency model: base + surcharge for capacity pressure.
+    expected: Dict[str, float] = {}
+    per_attempt_latencies: List[float] = []
+    for w in profiles.workers:
