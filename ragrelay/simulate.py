@@ -37,3 +37,10 @@ class SimulationResult:
             for wid, n in sorted(self.attempts_by_worker.items())
         }
 
+
+def _percentile(values: List[float], pct: float) -> float:
+    if not values:
+        return 0.0
+    ordered = sorted(values)
+    if len(ordered) == 1:
+        return ordered[0]
