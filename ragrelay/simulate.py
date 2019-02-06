@@ -73,3 +73,10 @@ def simulate(profiles: Profiles, fanout: int = 3) -> SimulationResult:
     expected: Dict[str, float] = {}
     per_attempt_latencies: List[float] = []
     for w in profiles.workers:
+        used = attempts_by_worker.get(w.id, 0)
+        pressure = used / w.capacity if w.capacity > 0 else 1.0
+        surcharge = w.base_latency_ms * min(pressure, 2.0) * 0.5
+        lat = round(w.base_latency_ms + surcharge, 3)
+        expected[w.id] = lat
+        per_attempt_latencies.extend([lat] * used)
+
