@@ -23,3 +23,6 @@ __all__ = [
     "Worker",
     "Query",
     "Profiles",
+    "load_profiles",
+    "score_query",
+    "route",
