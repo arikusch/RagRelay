@@ -7,3 +7,6 @@ latency, and writes reproducible run manifests.
 Public API:
     load_profiles   -- parse a profiles fixture into dataclasses
     score_query     -- affinity score for one query against one worker
+    route           -- allocate retrieval attempts for a query set
+    simulate        -- run a full routing simulation
+    RunManifest     -- serializable record of a simulation run
