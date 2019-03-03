@@ -13,3 +13,6 @@ Public API:
 """
 
 from .model import Worker, Query, Profiles, load_profiles
+from .routing import score_query, route, RouteDecision
+from .simulate import simulate, SimulationResult
+from .manifest import RunManifest
