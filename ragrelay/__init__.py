@@ -10,3 +10,6 @@ Public API:
     route           -- allocate retrieval attempts for a query set
     simulate        -- run a full routing simulation
     RunManifest     -- serializable record of a simulation run
+"""
+
+from .model import Worker, Query, Profiles, load_profiles
