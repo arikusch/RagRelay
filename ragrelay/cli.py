@@ -20,3 +20,12 @@ from .model import load_profiles
 from .routing import route, score_query
 from .simulate import simulate
 from .manifest import build_manifest
+
+
+def _cmd_route(args) -> int:
+    profiles = load_profiles(args.fixture)
+    print(f"route allocations (fanout={args.fanout})")
+    print("=" * 52)
+    for q in profiles.queries:
+        d = route(profiles, q, fanout=args.fanout)
+        parts = ", ".join(f"{wid}:{n}" for wid, n in d.allocation)
