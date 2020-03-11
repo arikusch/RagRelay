@@ -29,3 +29,11 @@ def _cmd_route(args) -> int:
     for q in profiles.queries:
         d = route(profiles, q, fanout=args.fanout)
         parts = ", ".join(f"{wid}:{n}" for wid, n in d.allocation)
+        print(f"  {q.id:<14} -> {parts}")
+    return 0
+
+
+def _cmd_score(args) -> int:
+    profiles = load_profiles(args.fixture)
+    header = ["query"] + [w.id for w in profiles.workers]
+    widths = [max(len(h), 8) for h in header]
