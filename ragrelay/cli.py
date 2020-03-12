@@ -46,3 +46,12 @@ def _cmd_score(args) -> int:
         print("  ".join(cell.ljust(widths[i]) for i, cell in enumerate(row)))
     return 0
 
+
+def _bar(fraction: float, width: int = 24) -> str:
+    filled = int(round(fraction * width))
+    return "#" * filled + "." * (width - filled)
+
+
+def _cmd_simulate(args) -> int:
+    profiles = load_profiles(args.fixture)
+    result = simulate(profiles, fanout=args.fanout)
