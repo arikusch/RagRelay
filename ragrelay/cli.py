@@ -37,3 +37,12 @@ def _cmd_score(args) -> int:
     profiles = load_profiles(args.fixture)
     header = ["query"] + [w.id for w in profiles.workers]
     widths = [max(len(h), 8) for h in header]
+    print("  ".join(h.ljust(widths[i]) for i, h in enumerate(header)))
+    print("-" * (sum(widths) + 2 * len(widths)))
+    for q in profiles.queries:
+        row = [q.id]
+        for w in profiles.workers:
+            row.append(f"{score_query(q, w):.4f}")
+        print("  ".join(cell.ljust(widths[i]) for i, cell in enumerate(row)))
+    return 0
+
