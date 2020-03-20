@@ -55,3 +55,12 @@ def _bar(fraction: float, width: int = 24) -> str:
 def _cmd_simulate(args) -> int:
     profiles = load_profiles(args.fixture)
     result = simulate(profiles, fanout=args.fanout)
+    print(f"simulation summary (fanout={args.fanout})")
+    print("=" * 52)
+    print(f"workers        : {len(profiles.workers)}")
+    print(f"queries        : {len(profiles.queries)}")
+    print(f"total attempts : {result.total_attempts}")
+    print(f"mean latency   : {result.mean_latency_ms} ms")
+    print(f"p95 latency    : {result.p95_latency_ms} ms")
+    print()
+    print("route distribution:")
