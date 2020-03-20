@@ -64,3 +64,12 @@ def _cmd_simulate(args) -> int:
     print(f"p95 latency    : {result.p95_latency_ms} ms")
     print()
     print("route distribution:")
+    dist = result.route_distribution()
+    for wid, frac in dist.items():
+        print(f"  {wid:<14} {_bar(frac)} {frac*100:5.1f}%")
+    print()
+    print("attempts by region:")
+    for region, n in result.attempts_by_region.items():
+        print(f"  {region:<14} {n}")
+    return 0
+
