@@ -91,3 +91,12 @@ def _cmd_manifest(args) -> int:
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
         prog="ragrelay",
+        description="deterministic retrieval-routing simulator",
+    )
+    sub = p.add_subparsers(dest="command", required=True)
+
+    def add_common(sp):
+        sp.add_argument("fixture", help="path to a profiles JSON fixture")
+        sp.add_argument(
+            "--fanout", type=int, default=3, help="workers per query (default 3)"
+        )
