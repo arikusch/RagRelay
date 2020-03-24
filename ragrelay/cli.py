@@ -82,3 +82,12 @@ def _cmd_manifest(args) -> int:
     if args.out:
         with open(args.out, "w", encoding="utf-8") as f:
             f.write(text + "\n")
+        print(f"wrote manifest {manifest.run_id} -> {args.out}")
+    else:
+        print(text)
+    return 0
+
+
+def build_parser() -> argparse.ArgumentParser:
+    p = argparse.ArgumentParser(
+        prog="ragrelay",
