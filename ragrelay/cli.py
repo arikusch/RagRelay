@@ -73,3 +73,12 @@ def _cmd_simulate(args) -> int:
         print(f"  {region:<14} {n}")
     return 0
 
+
+def _cmd_manifest(args) -> int:
+    profiles = load_profiles(args.fixture)
+    result = simulate(profiles, fanout=args.fanout)
+    manifest = build_manifest(profiles, result, fanout=args.fanout)
+    text = manifest.to_json()
+    if args.out:
+        with open(args.out, "w", encoding="utf-8") as f:
+            f.write(text + "\n")
