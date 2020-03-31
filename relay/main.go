@@ -19,3 +19,16 @@ import (
 
 // Worker describes a retrieval endpoint profile.
 type Worker struct {
+	ID        string    `json:"id"`
+	Region    string    `json:"region"`
+	Topics    []string  `json:"topics"`
+	Weight    float64   `json:"weight"`
+	BaseLatMS float64   `json:"base_latency_ms"`
+	Capacity  int       `json:"capacity"`
+	Vector    []float64 `json:"vector"`
+}
+
+// Query describes an incoming retrieval request.
+type Query struct {
+	ID      string    `json:"id"`
+	Topics  []string  `json:"topics"`
