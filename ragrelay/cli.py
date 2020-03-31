@@ -100,3 +100,12 @@ def build_parser() -> argparse.ArgumentParser:
         sp.add_argument(
             "--fanout", type=int, default=3, help="workers per query (default 3)"
         )
+
+    sp = sub.add_parser("route", help="show per-query attempt allocations")
+    add_common(sp)
+    sp.set_defaults(func=_cmd_route)
+
+    sp = sub.add_parser("score", help="print the affinity matrix")
+    sp.add_argument("fixture", help="path to a profiles JSON fixture")
+    sp.set_defaults(func=_cmd_score)
+
