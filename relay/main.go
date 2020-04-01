@@ -32,3 +32,17 @@ type Worker struct {
 type Query struct {
 	ID      string    `json:"id"`
 	Topics  []string  `json:"topics"`
+	Vector  []float64 `json:"vector"`
+	Urgency float64   `json:"urgency"`
+}
+
+// Profiles is the fixture root document.
+type Profiles struct {
+	Workers []Worker `json:"workers"`
+	Queries []Query  `json:"queries"`
+}
+
+// Ranked is a single scored endpoint row.
+type Ranked struct {
+	QueryID   string  `json:"query_id"`
+	WorkerID  string  `json:"worker_id"`
