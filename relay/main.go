@@ -59,3 +59,17 @@ func cosine(a, b []float64) float64 {
 	n := len(a)
 	if len(b) < n {
 		n = len(b)
+	}
+	var dot, na, nb float64
+	for i := 0; i < n; i++ {
+		dot += a[i] * b[i]
+		na += a[i] * a[i]
+		nb += b[i] * b[i]
+	}
+	if na == 0 || nb == 0 {
+		return 0
+	}
+	return dot / (math.Sqrt(na) * math.Sqrt(nb))
+}
+
+func topicOverlap(q, w []string) float64 {
