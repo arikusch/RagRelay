@@ -46,3 +46,16 @@ type Profiles struct {
 type Ranked struct {
 	QueryID   string  `json:"query_id"`
 	WorkerID  string  `json:"worker_id"`
+	Region    string  `json:"region"`
+	Affinity  float64 `json:"affinity"`
+	Cosine    float64 `json:"cosine"`
+	TopicHit  float64 `json:"topic_hit"`
+	LatScore  float64 `json:"latency_score"`
+	BaseLatMS float64 `json:"base_latency_ms"`
+	Rank      int     `json:"rank"`
+}
+
+func cosine(a, b []float64) float64 {
+	n := len(a)
+	if len(b) < n {
+		n = len(b)
