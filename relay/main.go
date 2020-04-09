@@ -73,3 +73,16 @@ func cosine(a, b []float64) float64 {
 }
 
 func topicOverlap(q, w []string) float64 {
+	if len(q) == 0 {
+		return 0
+	}
+	set := make(map[string]struct{}, len(w))
+	for _, t := range w {
+		set[strings.ToLower(t)] = struct{}{}
+	}
+	hit := 0
+	for _, t := range q {
+		if _, ok := set[strings.ToLower(t)]; ok {
+			hit++
+		}
+	}
