@@ -99,3 +99,17 @@ func latencyScore(baseLat, urgency float64) float64 {
 	return k / (k + baseLat)
 }
 
+func rank(p Profiles) []Ranked {
+	var out []Ranked
+	for _, q := range p.Queries {
+		var rows []Ranked
+		for _, w := range p.Workers {
+			cos := cosine(q.Vector, w.Vector)
+			th := topicOverlap(q.Topics, w.Topics)
+			ls := latencyScore(w.BaseLatMS, q.Urgency)
+			// Deterministic weighted blend.
+			aff := (0.5*cos + 0.3*th + 0.2*ls) * w.Weight
+			rows = append(rows, Ranked{
+				QueryID:   q.ID,
+				WorkerID:  w.ID,
+				Region:    w.Region,
