@@ -86,3 +86,16 @@ func topicOverlap(q, w []string) float64 {
 			hit++
 		}
 	}
+	return float64(hit) / float64(len(q))
+}
+
+// latencyScore maps base latency to a 0..1 preference (lower latency is better).
+// urgency sharpens the penalty for slow endpoints.
+func latencyScore(baseLat, urgency float64) float64 {
+	if baseLat <= 0 {
+		return 1
+	}
+	k := 40.0 * (1.0 + urgency)
+	return k / (k + baseLat)
+}
+
