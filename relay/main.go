@@ -113,3 +113,16 @@ func rank(p Profiles) []Ranked {
 				QueryID:   q.ID,
 				WorkerID:  w.ID,
 				Region:    w.Region,
+				Affinity:  round4(aff),
+				Cosine:    round4(cos),
+				TopicHit:  round4(th),
+				LatScore:  round4(ls),
+				BaseLatMS: w.BaseLatMS,
+			})
+		}
+		// Stable ordering: affinity desc, then worker id asc for ties.
+		sort.SliceStable(rows, func(i, j int) bool {
+			if rows[i].Affinity != rows[j].Affinity {
+				return rows[i].Affinity > rows[j].Affinity
+			}
+			return rows[i].WorkerID < rows[j].WorkerID
