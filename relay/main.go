@@ -140,3 +140,16 @@ func round4(f float64) float64 {
 }
 
 func main() {
+	in := flag.String("in", "", "path to profiles JSON fixture (default stdin)")
+	top := flag.Int("top", 0, "limit rows per query (0 = all)")
+	pretty := flag.Bool("pretty", false, "pretty-print JSON output")
+	flag.Parse()
+
+	var data []byte
+	var err error
+	if *in == "" {
+		data, err = readAll(os.Stdin)
+	} else {
+		data, err = os.ReadFile(*in)
+	}
+	if err != nil {
