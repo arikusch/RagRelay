@@ -126,3 +126,17 @@ func rank(p Profiles) []Ranked {
 				return rows[i].Affinity > rows[j].Affinity
 			}
 			return rows[i].WorkerID < rows[j].WorkerID
+		})
+		for i := range rows {
+			rows[i].Rank = i + 1
+		}
+		out = append(out, rows...)
+	}
+	return out
+}
+
+func round4(f float64) float64 {
+	return math.Round(f*10000) / 10000
+}
+
+func main() {
