@@ -153,3 +153,17 @@ func main() {
 		data, err = os.ReadFile(*in)
 	}
 	if err != nil {
+		fmt.Fprintln(os.Stderr, "relay: read error:", err)
+		os.Exit(1)
+	}
+
+	var p Profiles
+	if err := json.Unmarshal(data, &p); err != nil {
+		fmt.Fprintln(os.Stderr, "relay: parse error:", err)
+		os.Exit(1)
+	}
+	if len(p.Workers) == 0 || len(p.Queries) == 0 {
+		fmt.Fprintln(os.Stderr, "relay: fixture must contain workers and queries")
+		os.Exit(1)
+	}
+
