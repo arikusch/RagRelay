@@ -167,3 +167,16 @@ func main() {
 		os.Exit(1)
 	}
 
+	rows := rank(p)
+	if *top > 0 {
+		rows = limitPerQuery(rows, *top)
+	}
+
+	enc := json.NewEncoder(os.Stdout)
+	if *pretty {
+		enc.SetIndent("", "  ")
+	}
+	if err := enc.Encode(rows); err != nil {
+		fmt.Fprintln(os.Stderr, "relay: encode error:", err)
+		os.Exit(1)
+	}
