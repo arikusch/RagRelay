@@ -1,0 +1,7 @@
+{
+  "workers": [
+    {
+      "id": "w-crimson",
+      "region": "us-east",
+      "topics": ["payments", "ledger", "billing"],
+      "weight": 1.2,
