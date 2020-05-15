@@ -5,3 +5,13 @@
       "region": "us-east",
       "topics": ["payments", "ledger", "billing"],
       "weight": 1.2,
+      "base_latency_ms": 28.0,
+      "capacity": 12,
+      "vector": [0.9, 0.1, 0.2, 0.0, 0.3]
+    },
+    {
+      "id": "w-scarlet",
+      "region": "us-east",
+      "topics": ["search", "ranking", "index"],
+      "weight": 1.0,
+      "base_latency_ms": 45.0,
