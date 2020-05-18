@@ -15,3 +15,12 @@
       "topics": ["search", "ranking", "index"],
       "weight": 1.0,
       "base_latency_ms": 45.0,
+      "capacity": 10,
+      "vector": [0.2, 0.9, 0.1, 0.1, 0.2]
+    },
+    {
+      "id": "w-azure",
+      "region": "eu-west",
+      "topics": ["search", "embeddings", "vector"],
+      "weight": 1.1,
+      "base_latency_ms": 62.0,
