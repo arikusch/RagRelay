@@ -24,3 +24,12 @@
       "topics": ["search", "embeddings", "vector"],
       "weight": 1.1,
       "base_latency_ms": 62.0,
+      "capacity": 8,
+      "vector": [0.1, 0.7, 0.6, 0.2, 0.1]
+    },
+    {
+      "id": "w-cobalt",
+      "region": "eu-west",
+      "topics": ["ledger", "audit", "compliance"],
+      "weight": 0.9,
+      "base_latency_ms": 55.0,
