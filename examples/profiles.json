@@ -33,3 +33,12 @@
       "topics": ["ledger", "audit", "compliance"],
       "weight": 0.9,
       "base_latency_ms": 55.0,
+      "capacity": 8,
+      "vector": [0.6, 0.2, 0.1, 0.7, 0.2]
+    },
+    {
+      "id": "w-navy",
+      "region": "ap-south",
+      "topics": ["embeddings", "vector", "similarity"],
+      "weight": 1.0,
+      "base_latency_ms": 88.0,
