@@ -112,3 +112,20 @@ def route(profiles: Profiles, query: Query, fanout: int = 3) -> RouteDecision:
     """
 
     scored = [
+        (w, score_query(query, w)) for w in profiles.workers
+    ]
+    scored.sort(key=lambda pair: (-pair[1], pair[0].id))
+    top = scored[: max(1, fanout)]
+
+    weights = [max(0.0, s) for _, s in top]
+    caps = [w.capacity for w, _ in top]
+    counts = _largest_remainder(weights, query.attempts, caps)
+
+    allocation = [
+        (top[i][0].id, counts[i]) for i in range(len(top)) if counts[i] > 0
+    ]
+    # Guarantee at least the top worker receives an attempt.
+    if not allocation and top:
+        allocation = [(top[0][0].id, query.attempts)]
+
+    scores = [(w.id, s) for w, s in scored]
