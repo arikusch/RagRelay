@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="760" height="380" role="img" aria-labelledby="dm-title dm-desc">
+  <title id="dm-title">ragrelay distribution monitor</title>
+  <desc id="dm-desc">A horizontal bar chart of how retrieval attempts distribute across five worker endpoints in the bundled fixture, colored on the red-to-blue transit palette, with a latency indicator that sweeps left to right beneath the bars.</desc>
+
+  <rect width="760" height="380" fill="#0d1017"/>
+
