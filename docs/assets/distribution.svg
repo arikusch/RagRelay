@@ -5,3 +5,10 @@
 
   <rect width="760" height="380" fill="#0d1017"/>
 
+  <text x="28" y="40" fill="#f2f4f8" font-family="Consolas,Menlo,monospace" font-size="19" font-weight="700">ragrelay distribution</text>
+  <text x="28" y="60" fill="#9aa6bd" font-family="Consolas,Menlo,monospace" font-size="12">attempts per endpoint, fanout=3, sample run</text>
+
+  <!-- axes -->
+  <line x1="150" y1="90" x2="150" y2="310" stroke="#3a465f" stroke-width="1.5"/>
+  <line x1="150" y1="310" x2="700" y2="310" stroke="#3a465f" stroke-width="1.5"/>
+
