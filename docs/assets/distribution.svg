@@ -12,3 +12,10 @@
   <line x1="150" y1="90" x2="150" y2="310" stroke="#3a465f" stroke-width="1.5"/>
   <line x1="150" y1="310" x2="700" y2="310" stroke="#3a465f" stroke-width="1.5"/>
 
+  <!-- gridline ticks with percent labels -->
+  <g stroke="#232c3d" stroke-width="1" font-family="Consolas,Menlo,monospace" font-size="9" fill="#6f7c95">
+    <line x1="290" y1="90" x2="290" y2="310"/>
+    <text x="278" y="326">10%</text>
+    <line x1="430" y1="90" x2="430" y2="310"/>
+    <text x="418" y="326">20%</text>
+    <line x1="570" y1="90" x2="570" y2="310"/>
