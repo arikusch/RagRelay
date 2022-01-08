@@ -19,3 +19,10 @@
     <line x1="430" y1="90" x2="430" y2="310"/>
     <text x="418" y="326">20%</text>
     <line x1="570" y1="90" x2="570" y2="310"/>
+    <text x="558" y="326">30%</text>
+  </g>
+
+  <!-- bars: widths map to sample distribution (26.3, 21.1, 21.1, 15.8, 15.8 percent) -->
+  <g font-family="Consolas,Menlo,monospace" font-size="11.5" fill="#c9d2e2">
+    <text x="140" y="118" text-anchor="end">w-crimson</text>
+    <rect x="150" y="106" height="20" rx="2" fill="#d83a45">
