@@ -33,3 +33,10 @@
     <text x="140" y="156" text-anchor="end">w-scarlet</text>
     <rect x="150" y="144" height="20" rx="2" fill="#c95560">
       <animate attributeName="width" values="0;295;295" keyTimes="0;0.85;1" dur="2.4s" begin="0.15s" fill="freeze"/>
+    </rect>
+    <text x="453" y="159" fill="#f2f4f8">21.1%</text>
+
+    <text x="140" y="194" text-anchor="end">w-azure</text>
+    <rect x="150" y="182" height="20" rx="2" fill="#7d6bc4">
+      <animate attributeName="width" values="0;295;295" keyTimes="0;0.85;1" dur="2.4s" begin="0.3s" fill="freeze"/>
+    </rect>
