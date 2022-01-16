@@ -40,3 +40,10 @@
     <rect x="150" y="182" height="20" rx="2" fill="#7d6bc4">
       <animate attributeName="width" values="0;295;295" keyTimes="0;0.85;1" dur="2.4s" begin="0.3s" fill="freeze"/>
     </rect>
+    <text x="453" y="197" fill="#f2f4f8">21.1%</text>
+
+    <text x="140" y="232" text-anchor="end">w-cobalt</text>
+    <rect x="150" y="220" height="20" rx="2" fill="#3f7fce">
+      <animate attributeName="width" values="0;221;221" keyTimes="0;0.85;1" dur="2.4s" begin="0.45s" fill="freeze"/>
+    </rect>
+    <text x="379" y="235" fill="#f2f4f8">15.8%</text>
