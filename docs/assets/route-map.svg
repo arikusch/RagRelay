@@ -6,3 +6,10 @@
   <rect width="760" height="380" fill="#0d1017"/>
 
   <text x="28" y="40" fill="#f2f4f8" font-family="Consolas,Menlo,monospace" font-size="19" font-weight="700">ragrelay route map</text>
+  <text x="28" y="60" fill="#9aa6bd" font-family="Consolas,Menlo,monospace" font-size="12">queries &#8594; scorer &#8594; endpoints by region</text>
+
+  <!-- score blend legend -->
+  <g font-family="Consolas,Menlo,monospace" font-size="10.5" fill="#9aa6bd">
+    <text x="470" y="44">affinity = 0.5 cosine + 0.3 topic + 0.2 latency</text>
+    <text x="470" y="60">ranked desc, ties on id, split by capacity</text>
+  </g>
