@@ -13,3 +13,11 @@
     <text x="470" y="44">affinity = 0.5 cosine + 0.3 topic + 0.2 latency</text>
     <text x="470" y="60">ranked desc, ties on id, split by capacity</text>
   </g>
+
+  <!-- Lanes -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- red transactional trunk -->
+    <path id="lineRed" d="M130,150 L320,150 L430,200 L650,120" stroke="#d83a45" stroke-width="7"/>
+    <!-- red branch to compliance/audit at eu -->
+    <path id="lineRed2" d="M320,150 L460,110 L650,120" stroke="#d83a45" stroke-width="4" opacity="0.55"/>
+    <!-- blue semantic trunk -->
