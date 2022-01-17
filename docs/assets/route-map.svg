@@ -21,3 +21,10 @@
     <!-- red branch to compliance/audit at eu -->
     <path id="lineRed2" d="M320,150 L460,110 L650,120" stroke="#d83a45" stroke-width="4" opacity="0.55"/>
     <!-- blue semantic trunk -->
+    <path id="lineBlue" d="M130,250 L320,250 L430,200 L650,280" stroke="#2f7dd1" stroke-width="7"/>
+    <!-- blue branch to ap embeddings -->
+    <path id="lineBlue2" d="M320,250 L470,300 L650,340" stroke="#2f7dd1" stroke-width="4" opacity="0.55"/>
+  </g>
+
+  <!-- scorer interchange -->
+  <rect x="410" y="180" width="40" height="40" rx="4" fill="#0d1017" stroke="#e8b23a" stroke-width="3"/>
