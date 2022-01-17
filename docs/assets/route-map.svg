@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="760" height="380" role="img" aria-labelledby="rm-title rm-desc">
+  <title id="rm-title">ragrelay routing map</title>
+  <desc id="rm-desc">A transit-map diagram. Two queries enter on the left and travel red transactional lanes and blue semantic lanes through a central scorer interchange, then split to three regional endpoint stations on the right. Moving markers show retrieval attempts flowing along each route.</desc>
+
+  <rect width="760" height="380" fill="#0d1017"/>
+
+  <text x="28" y="40" fill="#f2f4f8" font-family="Consolas,Menlo,monospace" font-size="19" font-weight="700">ragrelay route map</text>
