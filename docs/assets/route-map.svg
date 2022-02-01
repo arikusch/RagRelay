@@ -36,3 +36,10 @@
   <!-- stations -->
   <g font-family="Consolas,Menlo,monospace" font-size="11.5">
     <!-- query origins -->
+    <circle cx="130" cy="150" r="9" fill="#0d1017" stroke="#d83a45" stroke-width="3"/>
+    <text x="30" y="154" fill="#f2f4f8">q-invoice</text>
+    <circle cx="130" cy="250" r="9" fill="#0d1017" stroke="#2f7dd1" stroke-width="3"/>
+    <text x="34" y="254" fill="#f2f4f8">q-lookup</text>
+
+    <!-- region endpoints -->
+    <circle cx="650" cy="120" r="10" fill="#0d1017" stroke="#d83a45" stroke-width="3"/>
