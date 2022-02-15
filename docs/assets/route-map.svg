@@ -58,3 +58,10 @@
   </circle>
   <circle r="4" fill="#ff8a92">
     <animateMotion dur="3.2s" begin="1.1s" repeatCount="indefinite"><mpath href="#lineRed"/></animateMotion>
+  </circle>
+  <circle r="5" fill="#5ba6ee">
+    <animateMotion dur="3.8s" repeatCount="indefinite"><mpath href="#lineBlue"/></animateMotion>
+  </circle>
+  <circle r="4" fill="#8cc2f5">
+    <animateMotion dur="3.8s" begin="1.6s" repeatCount="indefinite"><mpath href="#lineBlue"/></animateMotion>
+  </circle>
