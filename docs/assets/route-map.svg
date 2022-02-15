@@ -43,3 +43,11 @@
 
     <!-- region endpoints -->
     <circle cx="650" cy="120" r="10" fill="#0d1017" stroke="#d83a45" stroke-width="3"/>
+    <text x="666" y="124" fill="#f2f4f8">eu-west</text>
+    <circle cx="650" cy="200" r="10" fill="#0d1017" stroke="#c9d2e2" stroke-width="3"/>
+    <text x="666" y="204" fill="#f2f4f8">us-east</text>
+    <circle cx="650" cy="280" r="10" fill="#0d1017" stroke="#2f7dd1" stroke-width="3"/>
+    <text x="666" y="284" fill="#f2f4f8">ap-south</text>
+    <circle cx="650" cy="340" r="8" fill="#0d1017" stroke="#2f7dd1" stroke-width="2" opacity="0.7"/>
+    <text x="666" y="344" fill="#9aa6bd">w-navy</text>
+  </g>
