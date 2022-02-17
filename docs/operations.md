@@ -1,0 +1,5 @@
+# Operations reference
+
+## Python CLI
+
+```
