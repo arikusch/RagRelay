@@ -17,3 +17,10 @@ Run without installing via `python -m ragrelay <subcommand> ...`.
 A malformed fixture (bad JSON, or missing `workers`/`queries`) exits non-zero
 with a message on stderr.
 
+## Go scorer
+
+```
+relay -in PATH     read fixture from a file (default stdin)
+relay -top N       keep only the top N rows per query (0 = all)
+relay -pretty      pretty-print JSON output
+```
