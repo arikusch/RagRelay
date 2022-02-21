@@ -38,3 +38,10 @@ Output is a JSON array of ranked rows: `query_id`, `worker_id`, `region`,
 | `fanout`             | Fan-out used.                                            |
 | `worker_count`       | Number of workers.                                       |
 | `query_count`        | Number of queries.                                       |
+| `total_attempts`     | Total attempts allocated.                                |
+| `route_distribution` | Fraction of attempts per worker.                         |
+| `attempts_by_region` | Attempt counts by region.                                |
+| `mean_latency_ms`    | Attempt-weighted mean expected latency.                  |
+| `p95_latency_ms`     | 95th percentile of per-attempt expected latency.         |
+| `allocations`        | Per-query primary + full breakdown.                      |
+
