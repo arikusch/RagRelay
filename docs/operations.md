@@ -31,3 +31,10 @@ Output is a JSON array of ranked rows: `query_id`, `worker_id`, `region`,
 ## Manifest
 
 `manifest` produces a JSON document keyed by:
+
+| Field                | Meaning                                                  |
+|----------------------|----------------------------------------------------------|
+| `run_id`             | SHA-256(canonical inputs + fanout)[:16].                 |
+| `fanout`             | Fan-out used.                                            |
+| `worker_count`       | Number of workers.                                       |
+| `query_count`        | Number of queries.                                       |
