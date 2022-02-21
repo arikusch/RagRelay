@@ -24,3 +24,10 @@ relay -in PATH     read fixture from a file (default stdin)
 relay -top N       keep only the top N rows per query (0 = all)
 relay -pretty      pretty-print JSON output
 ```
+
+Output is a JSON array of ranked rows: `query_id`, `worker_id`, `region`,
+`affinity`, `cosine`, `topic_hit`, `latency_score`, `base_latency_ms`, `rank`.
+
+## Manifest
+
+`manifest` produces a JSON document keyed by:
