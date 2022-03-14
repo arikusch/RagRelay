@@ -11,3 +11,10 @@ tables in the top-level README for the full schema. The bundled example lives at
 (payments, ledger, audit) and semantic lanes (search, embeddings, vector).
 
 ## Affinity blend
+
+```
+affinity = (0.5*cosine + 0.3*topic_hit + 0.2*latency_score) * weight
+```
+
+### Cosine similarity
+
