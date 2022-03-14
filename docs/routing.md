@@ -18,3 +18,10 @@ affinity = (0.5*cosine + 0.3*topic_hit + 0.2*latency_score) * weight
 
 ### Cosine similarity
 
+Standard dot-product over L2 norms. When either vector is all zeros the result
+is defined as `0.0` to avoid division by zero. Only the overlapping prefix of
+the two vectors is compared, so vectors of differing length degrade gracefully.
+
+### Topic overlap
+
+Case-insensitive fraction of the query's topics that are present in the worker's
