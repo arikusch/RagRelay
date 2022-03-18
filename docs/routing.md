@@ -25,3 +25,10 @@ the two vectors is compared, so vectors of differing length degrade gracefully.
 ### Topic overlap
 
 Case-insensitive fraction of the query's topics that are present in the worker's
+topic set. A query with no topics contributes `0.0`.
+
+### Latency score
+
+```
+k = 40 * (1 + urgency)
+latency_score = k / (k + base_latency_ms)
