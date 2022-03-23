@@ -32,3 +32,10 @@ topic set. A query with no topics contributes `0.0`.
 ```
 k = 40 * (1 + urgency)
 latency_score = k / (k + base_latency_ms)
+```
+
+Higher urgency raises `k`, which flattens the curve so that urgent queries care
+more strongly about picking a fast endpoint. An endpoint with zero base latency
+scores `1.0`.
+
+## Ranking
