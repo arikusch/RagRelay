@@ -39,3 +39,10 @@ more strongly about picking a fast endpoint. An endpoint with zero base latency
 scores `1.0`.
 
 ## Ranking
+
+Workers are sorted by affinity descending, ties broken by `id` ascending. This
+total order is identical in Python (`sort` with a key of `(-affinity, id)`) and
+Go (`sort.SliceStable` with the same comparison), which is why the two
+components never disagree.
+
+## Attempt allocation
