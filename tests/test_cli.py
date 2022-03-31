@@ -15,3 +15,9 @@ def test_version_is_set() -> None:
     assert __version__ == "5.0.2"
 
 
+def test_cli_score(capsys) -> None:
+    assert main(["score", FIXTURE]) == 0
+    out = capsys.readouterr().out
+    assert "query" in out
+    assert "w-crimson" in out
+
