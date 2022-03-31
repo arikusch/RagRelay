@@ -21,3 +21,8 @@ def test_cli_score(capsys) -> None:
     assert "query" in out
     assert "w-crimson" in out
 
+
+def test_cli_route(capsys) -> None:
+    assert main(["route", FIXTURE]) == 0
+    out = capsys.readouterr().out
+    assert "route allocations (fanout=3)" in out
