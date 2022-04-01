@@ -26,3 +26,9 @@ def test_cli_route(capsys) -> None:
     assert main(["route", FIXTURE]) == 0
     out = capsys.readouterr().out
     assert "route allocations (fanout=3)" in out
+    assert "q-invoice" in out
+
+
+def test_cli_simulate(capsys) -> None:
+    assert main(["simulate", FIXTURE]) == 0
+    out = capsys.readouterr().out
