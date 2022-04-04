@@ -32,3 +32,9 @@ def test_cli_route(capsys) -> None:
 def test_cli_simulate(capsys) -> None:
     assert main(["simulate", FIXTURE]) == 0
     out = capsys.readouterr().out
+    assert "total attempts : 19" in out
+    assert "attempts by region:" in out
+
+
+def test_cli_manifest_stdout(capsys) -> None:
+    assert main(["manifest", FIXTURE]) == 0
