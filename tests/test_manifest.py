@@ -11,3 +11,10 @@ from ragrelay.simulate import simulate
 
 def _profiles() -> Profiles:
     workers = [
+        Worker(id="w1", region="r1", topics=["a"], vector=[1.0], capacity=5),
+        Worker(id="w2", region="r2", topics=["b"], vector=[0.0], capacity=5),
+    ]
+    queries = [Query(id="q1", topics=["a"], vector=[1.0], attempts=3)]
+    return Profiles(workers=workers, queries=queries)
+
+
