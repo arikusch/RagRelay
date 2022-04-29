@@ -18,3 +18,10 @@ def _profiles() -> Profiles:
     return Profiles(workers=workers, queries=queries)
 
 
+def test_run_id_is_stable_for_same_inputs() -> None:
+    profiles = _profiles()
+    first = build_manifest(profiles, simulate(profiles, fanout=2), fanout=2)
+    second = build_manifest(profiles, simulate(profiles, fanout=2), fanout=2)
+    assert first.run_id == second.run_id
+    assert len(first.run_id) == 16
+
