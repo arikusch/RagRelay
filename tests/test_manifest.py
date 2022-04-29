@@ -32,3 +32,10 @@ def test_run_id_changes_with_fanout() -> None:
     b = build_manifest(profiles, simulate(profiles, fanout=2), fanout=2)
     assert a.run_id != b.run_id
 
+
+def test_run_id_changes_with_fixture() -> None:
+    profiles = _profiles()
+    other = Profiles(
+        workers=profiles.workers,
+        queries=[Query(id="q1", topics=["a"], vector=[1.0], attempts=4)],
+    )
