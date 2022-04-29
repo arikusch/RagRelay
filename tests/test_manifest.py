@@ -25,3 +25,10 @@ def test_run_id_is_stable_for_same_inputs() -> None:
     assert first.run_id == second.run_id
     assert len(first.run_id) == 16
 
+
+def test_run_id_changes_with_fanout() -> None:
+    profiles = _profiles()
+    a = build_manifest(profiles, simulate(profiles, fanout=1), fanout=1)
+    b = build_manifest(profiles, simulate(profiles, fanout=2), fanout=2)
+    assert a.run_id != b.run_id
+
