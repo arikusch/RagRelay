@@ -39,3 +39,10 @@ def test_run_id_changes_with_fixture() -> None:
         workers=profiles.workers,
         queries=[Query(id="q1", topics=["a"], vector=[1.0], attempts=4)],
     )
+    a = build_manifest(profiles, simulate(profiles, fanout=2), fanout=2)
+    b = build_manifest(other, simulate(other, fanout=2), fanout=2)
+    assert a.run_id != b.run_id
+
+
+def test_manifest_fields_and_json() -> None:
+    profiles = _profiles()
