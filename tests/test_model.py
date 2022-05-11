@@ -28,3 +28,10 @@ def test_query_defaults() -> None:
 
 
 def test_worker_missing_region_falls_back() -> None:
+    w = Worker.from_dict({"id": "w1"})
+    assert w.region == "unknown"
+
+
+def test_profiles_requires_workers_and_queries() -> None:
+    with pytest.raises(ValueError):
+        Profiles.from_dict({"workers": [], "queries": [{"id": "q1"}]})
