@@ -16,3 +16,9 @@ def test_worker_defaults() -> None:
     assert w.weight == 1.0
     assert w.base_latency_ms == 50.0
     assert w.capacity == 8
+    assert w.topics == []
+    assert w.vector == []
+
+
+def test_query_defaults() -> None:
+    q = Query.from_dict({"id": "q1"})
