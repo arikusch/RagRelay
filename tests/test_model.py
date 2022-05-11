@@ -22,3 +22,9 @@ def test_worker_defaults() -> None:
 
 def test_query_defaults() -> None:
     q = Query.from_dict({"id": "q1"})
+    assert q.urgency == 0.0
+    assert q.attempts == 3
+    assert q.topics == []
+
+
+def test_worker_missing_region_falls_back() -> None:
