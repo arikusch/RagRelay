@@ -35,3 +35,9 @@ def test_worker_missing_region_falls_back() -> None:
 def test_profiles_requires_workers_and_queries() -> None:
     with pytest.raises(ValueError):
         Profiles.from_dict({"workers": [], "queries": [{"id": "q1"}]})
+    with pytest.raises(ValueError):
+        Profiles.from_dict({"workers": [{"id": "w1"}], "queries": []})
+
+
+def test_load_profiles_roundtrip(tmp_path) -> None:
+    fixture = {
