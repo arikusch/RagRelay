@@ -8,3 +8,13 @@ from ragrelay.model import Profiles, Query, Worker
 from ragrelay.routing import cosine, latency_score, route, score_query, topic_overlap
 
 
+def test_cosine_orthogonal_and_identical() -> None:
+    assert cosine([1.0, 0.0], [0.0, 1.0]) == 0.0
+    assert cosine([1.0, 1.0], [1.0, 1.0]) == pytest.approx(1.0)
+
+
+def test_cosine_zero_vector_is_zero() -> None:
+    assert cosine([0.0, 0.0], [1.0, 1.0]) == 0.0
+
+
+def test_cosine_uses_overlapping_prefix() -> None:
