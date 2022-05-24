@@ -27,3 +27,13 @@ def test_topic_overlap_is_case_insensitive() -> None:
     assert topic_overlap([], ["search"]) == 0.0
 
 
+def test_latency_score_prefers_fast_endpoints() -> None:
+    fast = latency_score(10.0, 0.0)
+    slow = latency_score(200.0, 0.0)
+    assert fast > slow
+    assert fast <= 1.0
+    assert latency_score(0.0, 0.5) == 1.0
+
+
+def test_urgency_sharpens_latency_penalty() -> None:
+    calm = latency_score(200.0, 0.0)
