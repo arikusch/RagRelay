@@ -37,3 +37,12 @@ def test_latency_score_prefers_fast_endpoints() -> None:
 
 def test_urgency_sharpens_latency_penalty() -> None:
     calm = latency_score(200.0, 0.0)
+    urgent = latency_score(200.0, 1.0)
+    assert urgent > calm
+
+
+def test_score_query_is_deterministic() -> None:
+    q = Query(id="q", topics=["payments"], vector=[1.0, 0.0], urgency=0.5)
+    w = Worker(id="w", region="r", topics=["payments"], vector=[1.0, 0.0])
+    first = score_query(q, w)
+    second = score_query(q, w)
