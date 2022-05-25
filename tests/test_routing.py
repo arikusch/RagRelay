@@ -46,3 +46,13 @@ def test_score_query_is_deterministic() -> None:
     w = Worker(id="w", region="r", topics=["payments"], vector=[1.0, 0.0])
     first = score_query(q, w)
     second = score_query(q, w)
+    assert first == second
+    assert first > 0.0
+
+
+def test_score_query_applies_weight() -> None:
+    q = Query(id="q", topics=["a"], vector=[1.0])
+    light = Worker(id="w", region="r", topics=["a"], vector=[1.0], weight=1.0)
+    heavy = Worker(id="w", region="r", topics=["a"], vector=[1.0], weight=2.0)
+    assert score_query(q, heavy) == 2 * score_query(q, light)
+
