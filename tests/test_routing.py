@@ -56,3 +56,12 @@ def test_score_query_applies_weight() -> None:
     heavy = Worker(id="w", region="r", topics=["a"], vector=[1.0], weight=2.0)
     assert score_query(q, heavy) == 2 * score_query(q, light)
 
+
+def _profiles() -> Profiles:
+    workers = [
+        Worker(id="w-fast", region="us-east", topics=["payments"], vector=[1.0, 0.0],
+               base_latency_ms=20.0, capacity=10),
+        Worker(id="w-slow", region="ap-south", topics=["payments"], vector=[1.0, 0.0],
+               base_latency_ms=200.0, capacity=10),
+    ]
+    queries = [Query(id="q1", topics=["payments"], vector=[1.0, 0.0], urgency=0.0, attempts=5)]
