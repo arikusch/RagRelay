@@ -75,3 +75,13 @@ def test_route_ranks_best_worker_first() -> None:
     assert sum(n for _, n in decision.allocation) == 5
 
 
+def test_route_respects_capacity() -> None:
+    workers = [
+        Worker(id="w1", region="r", topics=["a"], vector=[1.0], capacity=2),
+        Worker(id="w2", region="r", topics=["a"], vector=[1.0], capacity=2),
+    ]
+    profiles = Profiles(workers=workers, queries=[Query(id="q", topics=["a"], vector=[1.0], attempts=8)])
+    decision = route(profiles, profiles.queries[0], fanout=2)
+    for _, n in decision.allocation:
+        assert n <= 2
+
