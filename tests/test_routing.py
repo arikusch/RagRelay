@@ -65,3 +65,13 @@ def _profiles() -> Profiles:
                base_latency_ms=200.0, capacity=10),
     ]
     queries = [Query(id="q1", topics=["payments"], vector=[1.0, 0.0], urgency=0.0, attempts=5)]
+    return Profiles(workers=workers, queries=queries)
+
+
+def test_route_ranks_best_worker_first() -> None:
+    profiles = _profiles()
+    decision = route(profiles, profiles.queries[0], fanout=2)
+    assert decision.primary == "w-fast"
+    assert sum(n for _, n in decision.allocation) == 5
+
+
