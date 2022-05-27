@@ -17,3 +17,9 @@ def _profiles() -> Profiles:
     ]
     queries = [Query(id="q1", topics=["a"], vector=[1.0, 0.0], urgency=0.0, attempts=3)]
     return Profiles(workers=workers, queries=queries)
+
+
+def test_simulate_totals_and_region_rollup() -> None:
+    result = simulate(_profiles(), fanout=2)
+    assert result.total_attempts == 3
+    assert result.attempts_by_region == {"r1": 3}
