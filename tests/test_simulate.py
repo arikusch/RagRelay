@@ -37,3 +37,9 @@ def test_simulate_latency_model_includes_pressure_surcharge() -> None:
 def test_route_distribution_sums_to_one() -> None:
     result = simulate(_profiles(), fanout=2)
     dist = result.route_distribution()
+    assert sum(dist.values()) == pytest.approx(1.0)
+    assert dist["w1"] == pytest.approx(1.0)
+
+
+def test_route_distribution_empty_when_no_attempts() -> None:
+    profiles = Profiles(
