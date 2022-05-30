@@ -23,3 +23,10 @@ def test_simulate_totals_and_region_rollup() -> None:
     result = simulate(_profiles(), fanout=2)
     assert result.total_attempts == 3
     assert result.attempts_by_region == {"r1": 3}
+    assert result.attempts_by_worker == {"w1": 3, "w2": 0}
+
+
+def test_simulate_latency_model_includes_pressure_surcharge() -> None:
+    result = simulate(_profiles(), fanout=2)
+    # w1: 3 of 10 capacity -> surcharge = 100 * 0.3 * 0.5 = 15
+    assert result.expected_latency_ms["w1"] == pytest.approx(115.0)
