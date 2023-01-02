@@ -80,3 +80,18 @@ def simulate(profiles: Profiles, fanout: int = 3) -> SimulationResult:
         expected[w.id] = lat
         per_attempt_latencies.extend([lat] * used)
 
+    mean_lat = (
+        round(sum(per_attempt_latencies) / len(per_attempt_latencies), 3)
+        if per_attempt_latencies
+        else 0.0
+    )
+    p95 = round(_percentile(per_attempt_latencies, 95.0), 3)
+
+    return SimulationResult(
+        decisions=decisions,
+        attempts_by_worker={k: v for k, v in sorted(attempts_by_worker.items())},
+        attempts_by_region={k: v for k, v in sorted(attempts_by_region.items())},
+        total_attempts=total,
+        expected_latency_ms=expected,
+        mean_latency_ms=mean_lat,
+        p95_latency_ms=p95,
