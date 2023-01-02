@@ -18,3 +18,9 @@ dependency-free, and contributions are held to that standard.
 
 ```bash
 git clone https://github.com/jfrost4/RagRelay.git
+cd RagRelay
+
+# Python side
+python -m compileall ragrelay
+python -m pytest tests/ -o addopts=""     # requires pytest
+python -m ragrelay simulate examples/profiles.json
