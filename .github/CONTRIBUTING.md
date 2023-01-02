@@ -13,3 +13,8 @@ dependency-free, and contributions are held to that standard.
   fixture must produce identical output.
 - **Offline.** No network calls at build time or run time.
 - **Small, focused changes.** One topic per pull request.
+
+## Getting started
+
+```bash
+git clone https://github.com/jfrost4/RagRelay.git
