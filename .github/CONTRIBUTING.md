@@ -29,3 +29,8 @@ python -m ragrelay simulate examples/profiles.json
 cd relay && go build ./... && go vet ./...
 ```
 
+## Before you open a pull request
+
+1. Run the full test suite (`python -m pytest tests/ -o addopts=""`) and both
+   toolchains (`go build ./... && go vet ./...` in `relay/`).
+2. Keep the CLI contract stable: subcommand names, flag names, exit codes, and
