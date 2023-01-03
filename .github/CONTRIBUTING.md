@@ -24,3 +24,8 @@ cd RagRelay
 python -m compileall ragrelay
 python -m pytest tests/ -o addopts=""     # requires pytest
 python -m ragrelay simulate examples/profiles.json
+
+# Go side
+cd relay && go build ./... && go vet ./...
+```
+
