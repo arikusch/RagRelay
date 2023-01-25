@@ -16,3 +16,7 @@ The exact command and a minimal fixture (or a link to one):
 python -m ragrelay simulate examples/profiles.json
 ```
 
+**Expected behavior**
+What you expected to happen.
+
+**Actual behavior**
