@@ -6,3 +6,5 @@
 
 ## Checklist
 
+- [ ] `python -m compileall ragrelay` passes
+- [ ] `python -m pytest tests/ -o addopts=""` passes
