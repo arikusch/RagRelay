@@ -15,3 +15,7 @@ using GitHub's [private vulnerability reporting](https://docs.github.com/en/code
 on this repository, or by email to the maintainer.
 
 Include:
+
+- the affected version and platform,
+- a fixture or command sequence that reproduces the problem,
+- the impact you believe it has.
