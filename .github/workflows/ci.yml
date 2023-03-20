@@ -24,3 +24,9 @@ jobs:
           python -m ragrelay route examples/profiles.json
           python -m ragrelay simulate examples/profiles.json
           python -m ragrelay manifest examples/profiles.json
+
+  go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
