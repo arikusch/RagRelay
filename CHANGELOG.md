@@ -58,3 +58,13 @@ semantic versioning.
 ## [0.7.0] - 2023-11-14
 
 ### Added
+- p95 latency in the simulation summary, linear-interpolated from per-attempt
+  latencies.
+
+## [0.6.0] - 2022-12-06
+
+### Added
+- `manifest` subcommand and `RunManifest` with a content-addressed `run_id`
+  (SHA-256 of canonical inputs plus fan-out).
+
+## [0.5.0] - 2021-11-18
