@@ -38,3 +38,13 @@ semantic versioning.
 - `RunManifest` with the documented field set, covered by tests.
 
 ### Changed
+- Latency model applies a capacity-pressure surcharge and reports both mean and
+  p95 (linear-interpolated percentile).
+
+## [0.9.0] - 2025-11-25
+
+### Added
+- Cross-check workflow: run the Python engine and the Go scorer over the same
+  fixture and compare rankings.
+
+## [0.8.0] - 2024-12-03
