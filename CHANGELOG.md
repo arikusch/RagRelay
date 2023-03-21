@@ -28,3 +28,13 @@ semantic versioning.
 
 ### Added
 - Per-region attempt rollup in the simulation summary.
+- Go scorer `-top` flag to limit ranked rows per query.
+
+## [1.0.0] - 2026-06-09
+
+### Added
+- Stable CLI contract: `route`, `score`, `simulate`, `manifest` subcommands and
+  the `--fanout` / `--out` flags.
+- `RunManifest` with the documented field set, covered by tests.
+
+### Changed
