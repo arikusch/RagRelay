@@ -18,3 +18,13 @@ semantic versioning.
   modes.
 
 ## [3.1.0] - 2026-08-25
+
+### Added
+- `--fanout` is honored by `route` and `simulate` for every fixture shape,
+  including queries whose attempt counts exceed the summed capacity.
+- README recipes for diffing two capacity plans via manifests.
+
+## [2.3.0] - 2026-07-21
+
+### Added
+- Per-region attempt rollup in the simulation summary.
