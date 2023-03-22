@@ -68,3 +68,13 @@ semantic versioning.
   (SHA-256 of canonical inputs plus fan-out).
 
 ## [0.5.0] - 2021-11-18
+
+### Added
+- Per-region rollup of allocated attempts.
+- `score` subcommand printing the query-by-worker affinity matrix.
+
+## [0.4.0] - 2020-12-15
+
+### Added
+- `simulate` subcommand aggregating route distribution across all queries.
+- ASCII distribution bars in the CLI summary.
