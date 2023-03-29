@@ -7,3 +7,8 @@ FIXTURE ?= examples/profiles.json
 
 all: build
 
+build: build-py build-go ## Compile both halves
+
+build-py: ## Byte-compile the Python package
+	$(PY) -m compileall ragrelay
+
