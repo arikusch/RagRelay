@@ -12,3 +12,9 @@ build: build-py build-go ## Compile both halves
 build-py: ## Byte-compile the Python package
 	$(PY) -m compileall ragrelay
 
+build-go: ## Build the Go scorer/ranker
+	cd relay && go build ./... && go vet ./...
+
+test: ## Run the Python test suite
+	$(PY) -m pytest tests/ -o addopts=""
+
