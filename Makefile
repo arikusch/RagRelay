@@ -18,3 +18,8 @@ build-go: ## Build the Go scorer/ranker
 test: ## Run the Python test suite
 	$(PY) -m pytest tests/ -o addopts=""
 
+demo: build ## Run a full demo against the bundled fixture
+	$(PY) -m ragrelay simulate $(FIXTURE)
+	@echo ---
+	cd relay && go run . -in ../$(FIXTURE) -top 2 -pretty
+
