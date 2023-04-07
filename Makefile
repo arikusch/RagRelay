@@ -23,3 +23,9 @@ demo: build ## Run a full demo against the bundled fixture
 	@echo ---
 	cd relay && go run . -in ../$(FIXTURE) -top 2 -pretty
 
+route: ## Show per-query attempt allocations
+	$(PY) -m ragrelay route $(FIXTURE)
+
+simulate: ## Print distribution + latency summary
+	$(PY) -m ragrelay simulate $(FIXTURE)
+
