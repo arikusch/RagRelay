@@ -87,3 +87,21 @@ python -m ragrelay manifest examples/profiles.json --out run.json
 relay/relay -in examples/profiles.json -top 2 -pretty
 ```
 
+Running `simulate` against the bundled fixture prints a summary in this shape:
+
+```
+simulation summary (fanout=3)
+====================================================
+workers        : 5
+queries        : 4
+total attempts : 19
+
+route distribution:
+  w-azure        #####...................  21.1%
+  w-cobalt       ####....................  15.8%
+  w-crimson      ######..................  26.3%
+  w-navy         ####....................  15.8%
+  w-scarlet      #####...................  21.1%
+
+attempts by region:
+  ap-south       3
