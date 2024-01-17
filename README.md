@@ -34,3 +34,21 @@ RagRelay answers all three offline from a single JSON fixture. Because every
 stage is a pure function of its inputs, the same fixture always yields the same
 routing, the same distribution, and the same manifest `run_id`. That property
 turns it into a regression oracle: change a worker weight or a query's urgency,
+re-run, and diff the manifest.
+
+The diagrams use a red-and-blue transit map as their visual language. Red lanes
+carry the transactional topics (payments, ledger, audit); blue lanes carry the
+semantic ones (search, embeddings, vector similarity). Endpoints are stations,
+queries are trains, and the scorer is the interchange.
+
+## Install and build
+
+The two halves build independently.
+
+```bash
+# Python side: importable package and CLI, stdlib only
+python -m pip install -e .          # optional; installs the `ragrelay` script
+python -m ragrelay --help           # or run directly without installing
+
+# Go side: the scorer/ranker binary
+cd relay
