@@ -69,3 +69,21 @@ It covers the scoring blend, the largest-remainder allocator, the simulation
 aggregates, and manifest reproducibility. `make test` runs the same command.
 
 ## Quick start
+
+```bash
+# Summarize a run: distribution plus latency
+python -m ragrelay simulate examples/profiles.json
+
+# Inspect per-query attempt allocations
+python -m ragrelay route examples/profiles.json
+
+# Print the affinity matrix (query x worker)
+python -m ragrelay score examples/profiles.json
+
+# Write a reproducible manifest
+python -m ragrelay manifest examples/profiles.json --out run.json
+
+# Cross-check the ranking with the native Go scorer
+relay/relay -in examples/profiles.json -top 2 -pretty
+```
+
