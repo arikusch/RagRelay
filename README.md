@@ -52,3 +52,20 @@ python -m ragrelay --help           # or run directly without installing
 
 # Go side: the scorer/ranker binary
 cd relay
+go build ./...                      # produces the `relay` binary
+```
+
+Python 3.11+ and Go 1.24+ are the only prerequisites.
+
+## Tests
+
+The test suite is stdlib-only and runs from the repository root:
+
+```bash
+python -m pytest tests/ -o addopts=""     # requires pytest
+```
+
+It covers the scoring blend, the largest-remainder allocator, the simulation
+aggregates, and manifest reproducibility. `make test` runs the same command.
+
+## Quick start
