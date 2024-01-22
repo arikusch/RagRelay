@@ -122,3 +122,21 @@ A fixture is one JSON document with two arrays, `workers` and `queries`.
 | `topics` | string[] | Topic labels this endpoint specializes in. |
 | `weight` | float | Multiplier on the endpoint's final affinity. Default `1.0`. |
 | `base_latency_ms` | float | Idle round-trip latency in milliseconds. Default `50.0`. |
+| `capacity` | int | Maximum attempts the endpoint accepts in one run. Default `8`. |
+| `vector` | float[] | Dense profile embedding, compared to the query vector. |
+
+### Query (incoming request)
+
+| Field | Type | Meaning |
+|-------|------|---------|
+| `id` | string | Unique query identifier (train name). |
+| `topics` | string[] | Topic labels the query is about. |
+| `vector` | float[] | Dense query embedding, compared to each worker vector. |
+| `urgency` | float | 0..1; higher urgency sharpens the latency preference. |
+| `attempts` | int | Retrieval attempts to allocate for this query. Default `3`. |
+
+The bundled `examples/profiles.json` carries five workers across three regions
+and four queries spanning payments, search, embeddings, and audit topics.
+
+## The affinity score
+
