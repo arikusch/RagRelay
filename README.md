@@ -105,3 +105,20 @@ route distribution:
 
 attempts by region:
   ap-south       3
+  eu-west        7
+  us-east        9
+```
+
+## Fixture schema
+
+A fixture is one JSON document with two arrays, `workers` and `queries`.
+
+### Worker (endpoint profile)
+
+| Field | Type | Meaning |
+|-------|------|---------|
+| `id` | string | Unique endpoint identifier (station name). |
+| `region` | string | Deployment region, used for the by-region rollup. |
+| `topics` | string[] | Topic labels this endpoint specializes in. |
+| `weight` | float | Multiplier on the endpoint's final affinity. Default `1.0`. |
+| `base_latency_ms` | float | Idle round-trip latency in milliseconds. Default `50.0`. |
