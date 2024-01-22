@@ -158,3 +158,20 @@ affinity(query, worker) =
   ones.
 
 Ranking is stable: workers sort by affinity descending, ties broken on `id`
+ascending. That stability is why the Python and Go outputs agree.
+
+## Attempt allocation
+
+Once workers are ranked, a query's `attempts` split across the top `fanout`
+workers by a largest-remainder distribution proportional to affinity, bounded by
+each worker's `capacity`:
+
+1. Compute each top worker's exact proportional share of the attempts.
+2. Floor each share, never exceeding capacity.
+3. Hand out the leftover attempts one at a time to the largest fractional
+   remainders, skipping any worker already at capacity.
+4. Break remainder ties on index so the result stays fixed.
+
+The top-ranked worker is guaranteed at least one attempt, so no query goes
+unrouted. Largest-remainder avoids the drift of naive rounding and stays
+reproducible.
