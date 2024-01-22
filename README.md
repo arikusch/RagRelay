@@ -175,3 +175,21 @@ each worker's `capacity`:
 The top-ranked worker is guaranteed at least one attempt, so no query goes
 unrouted. Largest-remainder avoids the drift of naive rounding and stays
 reproducible.
+
+## How a run flows
+
+```
+ fixture.json
+     |
+     v
+ load_profiles ----> Profiles(workers, queries)
+     |
+     v
+ score_query  ----> affinity per (query, worker)    <== same math in Go relay
+     |
+     v
+ route        ----> RouteDecision(allocation per query)
+     |
+     v
+ simulate     ----> SimulationResult(distribution, latency)
+     |
