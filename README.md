@@ -140,3 +140,21 @@ and four queries spanning payments, search, embeddings, and audit topics.
 
 ## The affinity score
 
+The Python engine (`routing.py`) and the Go scorer compute the same blend:
+
+```
+affinity(query, worker) =
+    ( 0.5 * cosine(query.vector, worker.vector)
+    + 0.3 * topic_overlap(query.topics, worker.topics)
+    + 0.2 * latency_score(worker.base_latency_ms, query.urgency)
+    ) * worker.weight
+```
+
+- `cosine` is standard cosine similarity, returning 0 when either vector is zero.
+- `topic_overlap` is the fraction of the query's topics present in the worker's
+  topic set, matched case-insensitively.
+- `latency_score` is `k / (k + base_latency_ms)` with `k = 40 * (1 + urgency)`,
+  so a fast endpoint scores near 1 and rising urgency deepens the penalty on slow
+  ones.
+
+Ranking is stable: workers sort by affinity descending, ties broken on `id`
