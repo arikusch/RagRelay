@@ -211,3 +211,20 @@ pins every downstream artifact.
 |  routing.py score, rank, largest-remainder allocation     |
 |  simulate.py aggregate distribution + latency             |
 |  manifest.py sha256 run_id, canonical serialize           |
+|  model.py    Worker / Query / Profiles + fixture loading  |
++-----------------------------------------------------------+
+                         ^
+                         |  shared fixture schema + scoring blend
+                         v
++-----------------------------------------------------------+
+|                     relay/ (Go, main package)             |
+|  main.go   profiles JSON -> cosine + topic + latency      |
+|            -> ranked endpoints JSON (affinity, rank, ...)  |
++-----------------------------------------------------------+
+```
+
+The two halves never call each other at runtime; the shared fixture schema and
+scoring formula keep them in agreement. Reach for the Python side for
+simulation, distribution, and manifests; reach for the Go binary when you want a
+fast, dependency-free ranking to drop into another pipeline.
+
