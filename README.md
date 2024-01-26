@@ -246,3 +246,21 @@ Widen fan-out and watch the tail:
 
 ```bash
 python -m ragrelay simulate examples/profiles.json --fanout 2
+python -m ragrelay simulate examples/profiles.json --fanout 5
+```
+
+A wider fan-out pushes attempts onto lower-affinity (often slower) endpoints,
+which tends to raise p95 while smoothing the distribution.
+
+Take the single winning endpoint per query from the Go scorer:
+
+```bash
+relay/relay -in examples/profiles.json -top 1
+```
+
+Feed a fixture over stdin:
+
+```bash
+cat examples/profiles.json | relay/relay -pretty
+```
+
