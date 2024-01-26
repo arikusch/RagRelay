@@ -228,3 +228,21 @@ scoring formula keep them in agreement. Reach for the Python side for
 simulation, distribution, and manifests; reach for the Go binary when you want a
 fast, dependency-free ranking to drop into another pipeline.
 
+## Recipes
+
+Compare two capacity plans:
+
+```bash
+python -m ragrelay manifest examples/profiles.json --out before.json
+# edit a worker's capacity in a copy of the fixture, then:
+python -m ragrelay manifest my-fixture.json --out after.json
+diff before.json after.json
+```
+
+An identical plan yields an identical `run_id`; any change to a worker, query, or
+the fanout flips it.
+
+Widen fan-out and watch the tail:
+
+```bash
+python -m ragrelay simulate examples/profiles.json --fanout 2
