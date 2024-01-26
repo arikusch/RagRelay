@@ -193,3 +193,21 @@ reproducible.
      v
  simulate     ----> SimulationResult(distribution, latency)
      |
+     v
+ build_manifest --> RunManifest(run_id = sha256(inputs)[:16])
+```
+
+Nothing reads the clock, the network, or a random source, so a given fixture
+pins every downstream artifact.
+
+![Attempt distribution bars with a latency sweep across endpoints](docs/assets/distribution.svg)
+
+## Component layout
+
+```
++-----------------------------------------------------------+
+|                     ragrelay (Python)                     |
+|  cli.py     route | score | simulate | manifest           |
+|  routing.py score, rank, largest-remainder allocation     |
+|  simulate.py aggregate distribution + latency             |
+|  manifest.py sha256 run_id, canonical serialize           |
