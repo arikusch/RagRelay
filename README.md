@@ -264,3 +264,20 @@ Feed a fixture over stdin:
 cat examples/profiles.json | relay/relay -pretty
 ```
 
+## Operations reference
+
+### Python CLI
+
+```
+ragrelay route     <fixture> [--fanout N]                per-query allocations
+ragrelay score     <fixture>                             affinity matrix
+ragrelay simulate  <fixture> [--fanout N]                distribution + latency
+ragrelay manifest  <fixture> [--fanout N] [--out PATH]   reproducible manifest
+```
+
+`--fanout N` (default `3`) sets how many top-ranked workers a query may spread
+across. `--out PATH` (manifest only) writes JSON to a file instead of stdout. The
+exit code is `0` on success and non-zero on a malformed fixture (missing
+`workers` or `queries`, or unparseable JSON).
+
+### Go scorer
