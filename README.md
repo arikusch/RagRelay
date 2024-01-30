@@ -281,3 +281,21 @@ exit code is `0` on success and non-zero on a malformed fixture (missing
 `workers` or `queries`, or unparseable JSON).
 
 ### Go scorer
+
+```
+relay -in PATH     read fixture from a file (default: stdin)
+relay -top N       keep only the top N rows per query (0 = all)
+relay -pretty      pretty-print the JSON output
+```
+
+Output is a JSON array of ranked rows, each carrying `query_id`, `worker_id`,
+`region`, `affinity`, `cosine`, `topic_hit`, `latency_score`, `base_latency_ms`,
+and `rank`.
+
+### Manifest fields
+
+| Field | Meaning |
+|-------|---------|
+| `run_id` | First 16 hex chars of SHA-256 over canonical inputs plus fanout. |
+| `fanout` | Fan-out used for the run. |
+| `worker_count` | Number of worker profiles. |
