@@ -299,3 +299,21 @@ and `rank`.
 | `run_id` | First 16 hex chars of SHA-256 over canonical inputs plus fanout. |
 | `fanout` | Fan-out used for the run. |
 | `worker_count` | Number of worker profiles. |
+| `query_count` | Number of queries. |
+| `total_attempts` | Sum of allocated attempts across all queries. |
+| `route_distribution` | Fraction of total attempts per worker. |
+| `attempts_by_region` | Attempt counts rolled up by region. |
+| `mean_latency_ms` | Attempt-weighted mean expected latency. |
+| `p95_latency_ms` | 95th percentile of per-attempt expected latency. |
+| `allocations` | Per-query primary worker and full allocation breakdown. |
+
+### Latency model
+
+Expected latency for a worker is its base latency plus a load surcharge
+(`simulate.py`):
+
+```
+pressure  = attempts_used / capacity          (clamped to 2.0)
+surcharge = base_latency_ms * pressure * 0.5
+expected  = base_latency_ms + surcharge
+```
