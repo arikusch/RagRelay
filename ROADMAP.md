@@ -11,3 +11,6 @@
   p95 latency (`ragrelay/simulate.py:simulate`).
 - [x] **Content-addressed run manifests** — reproducible `run_id` from a
   SHA-256 digest of canonical inputs (`ragrelay/manifest.py:build_manifest`).
+
+## Planned
+
