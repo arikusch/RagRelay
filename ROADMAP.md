@@ -8,3 +8,6 @@
 - [x] **Largest-remainder attempt allocation** — capacity-bounded, drift-free
   splits across the top `fanout` workers (`ragrelay/routing.py:route`).
 - [x] **Simulation aggregation** — route distribution, by-region rollup, mean and
+  p95 latency (`ragrelay/simulate.py:simulate`).
+- [x] **Content-addressed run manifests** — reproducible `run_id` from a
+  SHA-256 digest of canonical inputs (`ragrelay/manifest.py:build_manifest`).
