@@ -3,3 +3,6 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
+name = "ragrelay"
+version = "5.0.2"
+description = "Deterministic retrieval-routing simulator with query/worker scoring and run manifests"
