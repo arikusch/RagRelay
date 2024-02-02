@@ -6,3 +6,6 @@ build-backend = "setuptools.build_meta"
 name = "ragrelay"
 version = "5.0.2"
 description = "Deterministic retrieval-routing simulator with query/worker scoring and run manifests"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
