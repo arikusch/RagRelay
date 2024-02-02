@@ -9,3 +9,6 @@ description = "Deterministic retrieval-routing simulator with query/worker scori
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
+authors = [{ name = "Julian Frost", email = "32219062+jfrost4@users.noreply.github.com" }]
+keywords = ["routing", "retrieval", "simulator", "rag", "load-balancing"]
+
