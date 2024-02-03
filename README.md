@@ -317,3 +317,52 @@ pressure  = attempts_used / capacity          (clamped to 2.0)
 surcharge = base_latency_ms * pressure * 0.5
 expected  = base_latency_ms + surcharge
 ```
+
+Per-attempt latencies expand across every allocated attempt, then the mean and
+the 95th percentile are computed with linear interpolation.
+
+## Project layout
+
+```
+ragrelay/
+  ragrelay/            Python package
+    __init__.py        public API + version
+    __main__.py        python -m ragrelay entry point
+    model.py           Worker / Query / Profiles + fixture loading
+    routing.py         scoring, ranking, largest-remainder allocation
+    simulate.py        distribution + latency aggregation
+    manifest.py        content-addressed run manifests
+    cli.py             argparse CLI (route/score/simulate/manifest)
+  relay/               Go scorer/ranker
+    go.mod
+    main.go
+  examples/
+    profiles.json      the bundled transit-map fixture
+  tests/               pytest suite for engine, simulation and manifests
+  docs/
+    routing.md         schema and scoring notes
+    operations.md      CLI and manifest reference
+    assets/
+      route-map.svg     transit routing map
+      distribution.svg  attempt distribution + latency
+  Makefile
+  pyproject.toml
+```
+
+## Determinism guarantees
+
+- No randomness, wall-clock reads, or environment lookups anywhere in the
+  routing, simulation, or manifest paths.
+- Stable sort keys (`affinity` descending, `id` ascending) fix the ranking order.
+- Largest-remainder allocation resolves leftovers by a fixed ordering.
+- The manifest `run_id` is a pure function of the canonical JSON inputs plus
+  fan-out.
+
+Two runs with byte-identical fixtures and the same fan-out produce identical
+output on any platform.
+
+## License
+
+Licensed under the MIT License. See [LICENSE](LICENSE).
+
+<!-- draft note 686 -->
