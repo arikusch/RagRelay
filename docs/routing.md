@@ -46,3 +46,14 @@ Go (`sort.SliceStable` with the same comparison), which is why the two
 components never disagree.
 
 ## Attempt allocation
+
+`route()` takes a query's `attempts` and splits them across the top `fanout`
+workers with a largest-remainder method:
+
+1. `exact_i = attempts * weight_i / sum(weights)`
+2. `alloc_i = min(floor(exact_i), capacity_i)`
+3. Distribute the remaining units to the largest fractional remainders, skipping
+   capped workers, breaking ties by index.
+4. The top worker is guaranteed at least one attempt.
+
+The result is exact (allocations sum to `attempts` unless capacity forbids it)
