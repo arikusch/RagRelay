@@ -180,3 +180,34 @@ func main() {
 		fmt.Fprintln(os.Stderr, "relay: encode error:", err)
 		os.Exit(1)
 	}
+}
+
+func limitPerQuery(rows []Ranked, top int) []Ranked {
+	counts := map[string]int{}
+	var out []Ranked
+	for _, r := range rows {
+		if counts[r.QueryID] >= top {
+			continue
+		}
+		counts[r.QueryID]++
+		out = append(out, r)
+	}
+	return out
+}
+
+func readAll(f *os.File) ([]byte, error) {
+	buf := make([]byte, 0, 4096)
+	tmp := make([]byte, 4096)
+	for {
+		n, err := f.Read(tmp)
+		if n > 0 {
+			buf = append(buf, tmp[:n]...)
+		}
+		if err != nil {
+			if err.Error() == "EOF" {
+				return buf, nil
+			}
+			return buf, nil
+		}
+	}
+}
