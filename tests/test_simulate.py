@@ -43,3 +43,15 @@ def test_route_distribution_sums_to_one() -> None:
 
 def test_route_distribution_empty_when_no_attempts() -> None:
     profiles = Profiles(
+        workers=[Worker(id="w1", region="r1")],
+        queries=[Query(id="q1", attempts=0)],
+    )
+    result = simulate(profiles, fanout=1)
+    assert result.route_distribution() == {}
+
+
+def test_percentile_interpolates() -> None:
+    assert _percentile([10.0], 95.0) == 10.0
+    assert _percentile([0.0, 10.0], 50.0) == 5.0
+    assert _percentile([0.0, 10.0], 100.0) == 10.0
+    assert _percentile([], 95.0) == 0.0
