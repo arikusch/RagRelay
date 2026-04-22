@@ -85,3 +85,21 @@ def test_route_respects_capacity() -> None:
     for _, n in decision.allocation:
         assert n <= 2
 
+
+def test_route_top_worker_always_gets_an_attempt() -> None:
+    workers = [
+        Worker(id="w1", region="r", topics=["a"], vector=[1.0], capacity=1),
+        Worker(id="w2", region="r", topics=["a"], vector=[1.0], capacity=1),
+    ]
+    profiles = Profiles(workers=workers, queries=[Query(id="q", topics=["a"], vector=[1.0], attempts=1)])
+    decision = route(profiles, profiles.queries[0], fanout=2)
+    assert decision.allocation[0][0] == "w1"
+    assert decision.allocation[0][1] >= 1
+
+
+def test_route_is_stable_across_runs() -> None:
+    profiles = _profiles()
+    a = route(profiles, profiles.queries[0], fanout=2)
+    b = route(profiles, profiles.queries[0], fanout=2)
+    assert a.allocation == b.allocation
+    assert a.scores == b.scores
