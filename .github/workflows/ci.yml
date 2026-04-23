@@ -30,3 +30,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
+        with:
+          go-version: "1.24"
+      - name: Build and vet
+        working-directory: relay
+        run: |
+          go build ./...
+          go vet ./...
+      - name: Smoke-run scorer
+        run: go run ./relay -in examples/profiles.json -top 2
