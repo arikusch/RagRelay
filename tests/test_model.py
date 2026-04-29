@@ -41,3 +41,14 @@ def test_profiles_requires_workers_and_queries() -> None:
 
 def test_load_profiles_roundtrip(tmp_path) -> None:
     fixture = {
+        "workers": [{"id": "w1", "region": "r1", "topics": ["a"], "vector": [1.0]}],
+        "queries": [{"id": "q1", "topics": ["a"], "vector": [1.0], "attempts": 2}],
+    }
+    path = tmp_path / "fixture.json"
+    path.write_text(json.dumps(fixture), encoding="utf-8")
+
+    profiles = load_profiles(path)
+    assert len(profiles.workers) == 1
+    assert len(profiles.queries) == 1
+    assert profiles.workers[0].id == "w1"
+    assert profiles.queries[0].attempts == 2
