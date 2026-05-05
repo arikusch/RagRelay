@@ -46,3 +46,16 @@ def test_run_id_changes_with_fixture() -> None:
 
 def test_manifest_fields_and_json() -> None:
     profiles = _profiles()
+    manifest = build_manifest(profiles, simulate(profiles, fanout=2), fanout=2)
+    data = manifest.to_dict()
+    assert data["fanout"] == 2
+    assert data["worker_count"] == 2
+    assert data["query_count"] == 1
+    assert data["total_attempts"] == 3
+    assert data["allocations"][0]["query_id"] == "q1"
+    assert data["allocations"][0]["primary"] == "w1"
+
+    text = manifest.to_json()
+    parsed = json.loads(text)
+    assert parsed == data
+    assert text == json.dumps(data, indent=2, sort_keys=True)
