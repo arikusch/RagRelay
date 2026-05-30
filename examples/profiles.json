@@ -61,3 +61,19 @@
       "urgency": 0.3,
       "attempts": 5
     },
+    {
+      "id": "q-embed",
+      "topics": ["embeddings", "vector", "similarity"],
+      "vector": [0.1, 0.55, 0.8, 0.1, 0.35],
+      "urgency": 0.1,
+      "attempts": 4
+    },
+    {
+      "id": "q-audit",
+      "topics": ["ledger", "audit", "compliance"],
+      "vector": [0.6, 0.25, 0.1, 0.7, 0.2],
+      "urgency": 0.5,
+      "attempts": 4
+    }
+  ]
+}
