@@ -95,3 +95,4 @@ def simulate(profiles: Profiles, fanout: int = 3) -> SimulationResult:
         expected_latency_ms=expected,
         mean_latency_ms=mean_lat,
         p95_latency_ms=p95,
+    )
