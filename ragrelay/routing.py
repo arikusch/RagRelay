@@ -129,3 +129,4 @@ def route(profiles: Profiles, query: Query, fanout: int = 3) -> RouteDecision:
         allocation = [(top[0][0].id, query.attempts)]
 
     scores = [(w.id, s) for w, s in scored]
+    return RouteDecision(query_id=query.id, allocation=allocation, scores=scores)
