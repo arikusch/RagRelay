@@ -109,3 +109,23 @@ def build_parser() -> argparse.ArgumentParser:
     sp.add_argument("fixture", help="path to a profiles JSON fixture")
     sp.set_defaults(func=_cmd_score)
 
+    sp = sub.add_parser("simulate", help="run a simulation and summarize routes")
+    add_common(sp)
+    sp.set_defaults(func=_cmd_simulate)
+
+    sp = sub.add_parser("manifest", help="emit a reproducible run manifest")
+    add_common(sp)
+    sp.add_argument("--out", help="write manifest to this path instead of stdout")
+    sp.set_defaults(func=_cmd_manifest)
+
+    return p
+
+
+def main(argv: List[str] | None = None) -> int:
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    return args.func(args)
+
+
+if __name__ == "__main__":
+    sys.exit(main())
