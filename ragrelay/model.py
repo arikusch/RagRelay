@@ -75,3 +75,15 @@ class Profiles:
             raise ValueError("profiles must contain at least one query")
         return cls(workers=workers, queries=queries)
 
+
+def load_profiles(path: str | Path) -> Profiles:
+    """Load a profiles fixture from a JSON file."""
+
+    raw = Path(path).read_text(encoding="utf-8")
+    return Profiles.from_dict(json.loads(raw))
+
+
+def load_profiles_str(text: str) -> Profiles:
+    """Load profiles from a JSON string."""
+
+    return Profiles.from_dict(json.loads(text))
