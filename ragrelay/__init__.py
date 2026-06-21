@@ -26,3 +26,9 @@ __all__ = [
     "load_profiles",
     "score_query",
     "route",
+    "RouteDecision",
+    "simulate",
+    "SimulationResult",
+    "RunManifest",
+    "__version__",
+]
