@@ -88,3 +88,20 @@ def build_manifest(
     allocations = [
         {
             "query_id": d.query_id,
+            "primary": d.primary,
+            "allocation": [{"worker_id": wid, "attempts": n} for wid, n in d.allocation],
+        }
+        for d in result.decisions
+    ]
+    return RunManifest(
+        run_id=_digest(profiles, fanout),
+        fanout=fanout,
+        worker_count=len(profiles.workers),
+        query_count=len(profiles.queries),
+        total_attempts=result.total_attempts,
+        route_distribution=result.route_distribution(),
+        attempts_by_region=result.attempts_by_region,
+        mean_latency_ms=result.mean_latency_ms,
+        p95_latency_ms=result.p95_latency_ms,
+        allocations=allocations,
+    )
