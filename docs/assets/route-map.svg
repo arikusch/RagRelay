@@ -65,3 +65,18 @@
   <circle r="4" fill="#8cc2f5">
     <animateMotion dur="3.8s" begin="1.6s" repeatCount="indefinite"><mpath href="#lineBlue"/></animateMotion>
   </circle>
+  <circle r="3.5" fill="#ff8a92">
+    <animateMotion dur="4.4s" repeatCount="indefinite"><mpath href="#lineRed2"/></animateMotion>
+  </circle>
+  <circle r="3.5" fill="#8cc2f5">
+    <animateMotion dur="4.4s" begin="0.9s" repeatCount="indefinite"><mpath href="#lineBlue2"/></animateMotion>
+  </circle>
+
+  <!-- lane key -->
+  <g font-family="Consolas,Menlo,monospace" font-size="10.5">
+    <rect x="28" y="330" width="14" height="6" rx="1" fill="#d83a45"/>
+    <text x="48" y="336" fill="#c9d2e2">transactional: payments, ledger, audit</text>
+    <rect x="28" y="350" width="14" height="6" rx="1" fill="#2f7dd1"/>
+    <text x="48" y="356" fill="#c9d2e2">semantic: search, embeddings, vector</text>
+  </g>
+</svg>
