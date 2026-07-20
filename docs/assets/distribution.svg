@@ -60,3 +60,17 @@
     <line x1="150" y1="88" x2="150" y2="310" stroke="#e8b23a" stroke-width="2">
       <animate attributeName="x1" values="150;690;150" dur="5s" repeatCount="indefinite"/>
       <animate attributeName="x2" values="150;690;150" dur="5s" repeatCount="indefinite"/>
+    </line>
+    <text x="150" y="352" fill="#e8b23a" font-family="Consolas,Menlo,monospace" font-size="10">
+      expected latency
+      <animate attributeName="x" values="150;600;150" dur="5s" repeatCount="indefinite"/>
+    </text>
+  </g>
+
+  <!-- region key -->
+  <g font-family="Consolas,Menlo,monospace" font-size="10">
+    <rect x="560" y="100" width="12" height="12" fill="#d83a45"/><text x="578" y="110" fill="#c9d2e2">us-east</text>
+    <rect x="560" y="120" width="12" height="12" fill="#7d6bc4"/><text x="578" y="130" fill="#c9d2e2">eu-west</text>
+    <rect x="560" y="140" width="12" height="12" fill="#2f7dd1"/><text x="578" y="150" fill="#c9d2e2">ap-south</text>
+  </g>
+</svg>
