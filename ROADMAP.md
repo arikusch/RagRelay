@@ -14,3 +14,8 @@
 
 ## Planned
 
+- [ ] Multi-round simulation with attempt retries on simulated failures.
+- [ ] Pluggable scoring blends selectable from the CLI.
+- [ ] Sticky-session routing that pins a query family to a region.
+- [ ] Manifest diffing subcommand with a human-readable delta report.
+- [ ] Optional CSV export of the affinity matrix.
