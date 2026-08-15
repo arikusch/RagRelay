@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Go
+relay/relay
+relay/relay.exe
+*.exe
+*.test
+*.out
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Run artifacts
+run.json
+*.manifest.json
