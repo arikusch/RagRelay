@@ -1,0 +1,9 @@
+* text=auto eol=lf
+*.svg text
+*.json text
+*.go text
+*.py text
+*.exe binary
+*.png binary
+*.ico binary
+*.mp4 binary
