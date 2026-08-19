@@ -57,3 +57,4 @@ workers with a largest-remainder method:
 4. The top worker is guaranteed at least one attempt.
 
 The result is exact (allocations sum to `attempts` unless capacity forbids it)
+and fully deterministic.
