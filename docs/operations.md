@@ -45,3 +45,15 @@ Output is a JSON array of ranked rows: `query_id`, `worker_id`, `region`,
 | `p95_latency_ms`     | 95th percentile of per-attempt expected latency.         |
 | `allocations`        | Per-query primary + full breakdown.                      |
 
+Identical inputs and fan-out yield an identical `run_id`, which makes manifests
+usable as regression fixtures: commit one, and diff future runs against it.
+
+## Make targets
+
+```
+make build      # compile Python + Go
+make demo       # simulate + native ranking against the bundled fixture
+make simulate   # distribution + latency summary
+make manifest   # emit a run manifest
+make clean      # remove build artifacts
+```
