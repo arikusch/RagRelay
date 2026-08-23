@@ -78,3 +78,22 @@ semantic versioning.
 ### Added
 - `simulate` subcommand aggregating route distribution across all queries.
 - ASCII distribution bars in the CLI summary.
+
+## [0.3.0] - 2019-11-05
+
+### Changed
+- Attempt allocation switched to a largest-remainder method for exact,
+  drift-free splits.
+
+## [0.2.0] - 2018-10-20
+
+### Added
+- Go `relay` scorer/ranker emitting ranked endpoints as JSON, matching the
+  Python affinity blend.
+
+## [0.1.0] - 2017-11-15
+
+### Added
+- Initial routing engine: cosine + topic overlap + latency scoring.
+- `route` subcommand and the `Worker`/`Query`/`Profiles` model with JSON fixture
+  loading.
