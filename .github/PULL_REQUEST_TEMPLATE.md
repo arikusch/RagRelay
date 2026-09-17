@@ -10,3 +10,7 @@
 - [ ] `python -m pytest tests/ -o addopts=""` passes
 - [ ] `cd relay && go build ./... && go vet ./...` passes (if the Go side is touched)
 - [ ] CLI flags, exit codes, and manifest fields are unchanged (or the change is
+      documented and deliberate)
+- [ ] `CHANGELOG.md` updated under `[Unreleased]` if behavior changed
+- [ ] No new runtime dependencies (standard library only)
+- [ ] Output remains deterministic for a given fixture
