@@ -34,3 +34,13 @@ cd relay && go build ./... && go vet ./...
 1. Run the full test suite (`python -m pytest tests/ -o addopts=""`) and both
    toolchains (`go build ./... && go vet ./...` in `relay/`).
 2. Keep the CLI contract stable: subcommand names, flag names, exit codes, and
+   manifest fields are public API.
+3. If behavior changes, update `CHANGELOG.md` under `[Unreleased]` and any
+   affected docs.
+4. Reference the fixture you tested with in the pull request description.
+
+## Reporting bugs
+
+Open an issue with the fixture that reproduces the problem (or a minimal
+version of it), the exact command you ran, and the output you expected versus
+what you saw.
