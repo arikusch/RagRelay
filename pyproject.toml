@@ -16,3 +16,8 @@ keywords = ["routing", "retrieval", "simulator", "rag", "load-balancing"]
 ragrelay = "ragrelay.cli:main"
 
 [project.urls]
+Homepage = "https://github.com/jfrost4/RagRelay"
+Source = "https://github.com/jfrost4/RagRelay"
+
+[tool.setuptools]
+packages = ["ragrelay"]
