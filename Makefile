@@ -29,3 +29,12 @@ route: ## Show per-query attempt allocations
 simulate: ## Print distribution + latency summary
 	$(PY) -m ragrelay simulate $(FIXTURE)
 
+manifest: ## Emit a reproducible run manifest
+	$(PY) -m ragrelay manifest $(FIXTURE)
+
+score: ## Print the affinity matrix
+	$(PY) -m ragrelay score $(FIXTURE)
+
+clean: ## Remove build artifacts
+	rm -rf ragrelay/__pycache__ *.egg-info build dist
+	rm -f relay/relay relay/relay.exe run.json
