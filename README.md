@@ -364,5 +364,3 @@ output on any platform.
 ## License
 
 Licensed under the MIT License. See [LICENSE](LICENSE).
-
-<!-- draft note 1133 -->
