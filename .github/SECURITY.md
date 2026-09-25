@@ -19,3 +19,9 @@ Include:
 - the affected version and platform,
 - a fixture or command sequence that reproduces the problem,
 - the impact you believe it has.
+
+You can expect an acknowledgement within a few days. RagRelay performs no
+network I/O and reads only the fixture files you pass it, so the practical
+attack surface is small: the main classes of concern are malformed fixture
+inputs (parsing and numeric edge cases) and resource exhaustion on very large
+fixtures.
