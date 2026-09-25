@@ -20,3 +20,10 @@ python -m ragrelay simulate examples/profiles.json
 What you expected to happen.
 
 **Actual behavior**
+What actually happened, including the full output or error message.
+
+**Environment**
+- RagRelay version (`python -m ragrelay --help` or `__version__`):
+- Python version:
+- OS:
+- Go version (if the issue involves `relay/`):
