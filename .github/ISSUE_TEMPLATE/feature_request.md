@@ -14,3 +14,8 @@ What you want to happen. If it changes the CLI or the manifest format, note
 that explicitly — both are treated as public API.
 
 **Describe alternatives you have considered**
+Any workarounds or other approaches.
+
+**Additional context**
+Fixtures, expected output sketches, or references. Remember: standard library
+only, deterministic, offline.
