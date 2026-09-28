@@ -38,4 +38,5 @@ jobs:
           go build ./...
           go vet ./...
       - name: Smoke-run scorer
-        run: go run ./relay -in examples/profiles.json -top 2
+        working-directory: relay
+        run: go run . -in ../examples/profiles.json -top 2
