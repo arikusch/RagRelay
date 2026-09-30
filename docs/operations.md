@@ -28,6 +28,8 @@ relay -pretty      pretty-print JSON output
 Output is a JSON array of ranked rows: `query_id`, `worker_id`, `region`,
 `affinity`, `cosine`, `topic_hit`, `latency_score`, `base_latency_ms`, `rank`.
 
+Both the Python engine and the Go scorer sort by `affinity` descending and break ties on worker id ascending, so the two rankings can be compared row by row.
+
 ## Manifest
 
 `manifest` produces a JSON document keyed by:
