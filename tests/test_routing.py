@@ -103,3 +103,7 @@ def test_route_is_stable_across_runs() -> None:
     b = route(profiles, profiles.queries[0], fanout=2)
     assert a.allocation == b.allocation
     assert a.scores == b.scores
+
+def test_cosine_zero_vector_on_either_side() -> None:
+    assert cosine([0.0, 0.0], [1.0, 1.0]) == 0.0
+    assert cosine([1.0, 1.0], [0.0, 0.0]) == 0.0
