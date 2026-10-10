@@ -50,6 +50,8 @@ Both the Python engine and the Go scorer sort by `affinity` descending and break
 Identical inputs and fan-out yield an identical `run_id`, which makes manifests
 usable as regression fixtures: commit one, and diff future runs against it.
 
+A manifest carries no timestamps, so a stored manifest stays comparable indefinitely.
+
 ## Make targets
 
 ```
